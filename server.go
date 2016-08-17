@@ -2,9 +2,9 @@ package main
 
 import (
 	"log"
+	"net"
 	"net/http"
 	"strings"
-	"net"
 )
 
 type fileHandler struct {
@@ -26,9 +26,9 @@ func (f *fileHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		r.URL.Path = upath
 	}
 	if net.ParseIP(r.RemoteAddr) == nil {
-		log.Println(upath," from ", net.ParseIP(r.RemoteAddr))
-	}else{
-		log.Println(upath," from ", r.Header.Get("X-Forwarded-For"))
+		log.Println(upath, " from ", net.ParseIP(r.RemoteAddr))
+	} else {
+		log.Println(upath, " from ", r.Header.Get("X-Forwarded-For"))
 	}
 	http.ServeFile(w, r, "html"+upath)
 }
