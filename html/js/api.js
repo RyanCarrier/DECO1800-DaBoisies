@@ -34,8 +34,9 @@ function get(div, zone, search) {
         console.log(URL);
         //Could just pass this in, but we want to be storing this shit
         result = response;
+        $(div).append("<h2>" + search + "</h2>With weighting;<br>");
         $(div).append(relevance());
-        $(div).append("<br>");
+        $(div).append("<br>Without weighting;<br>");
         $(div).append(relevanceNoWeighting());
     });
 }
@@ -59,5 +60,9 @@ function relevance() {
     }
     return total;
 }
-//This shoudl be on doc load in the future, but doesn't need to be during testing
-get("#search", "all", "britney spears");
+//run when window is loaded
+$(window).load(function() {
+    $(help).append("If nothing is coming up, check if it is 'waiting for trove' in the bottom right corner. If it is refresh the page.");
+    $(help).append("Also open up the dev console for more dettails.<br><br>");
+    get("#search", "all", "britney spears");
+}());
