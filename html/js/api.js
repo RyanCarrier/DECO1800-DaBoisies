@@ -25,8 +25,10 @@ var result;
 //get gets the search from the zone and appends the response to the div specified.
 //In its current state it gets the relevance (with weighting) and the relevance
 // without weighting.
-function get(div, zone, search) {
+function get(div, search) {
     //TODO: Some shit when we get 500 response
+    //took this out of get cause we shouldn't ever need to specify zone
+    zone = "all";
     var URL = "http://api.trove.nla.gov.au/result?key=" + apikey + "&encoding=json&zone=" +
         zone + "&q=" + search + "&callback=?";
     $.getJSON(URL, function(response) {
@@ -38,9 +40,14 @@ function get(div, zone, search) {
         $(div).append(relevance());
         $(div).append("<br>Without weighting;<br>");
         $(div).append(relevanceNoWeighting());
+        $(div).append("<br>");
     });
 }
 
+//get wrapper for the lazy
+function genericGet(search) {
+    get("#search", search);
+}
 
 function relevanceNoWeighting() {
     total = 0;
@@ -64,5 +71,7 @@ function relevance() {
 $(window).load(function() {
     $(help).append("If nothing is coming up, check if it is 'waiting for trove' in the bottom right corner. If it is refresh the page.");
     $(help).append("Also open up the dev console for more dettails.<br><br>");
-    get("#search", "all", "britney spears");
+    genericGet("britney spears");
+    genericGet("Steve Irwin");
+    genericGet("your mom");
 }());
