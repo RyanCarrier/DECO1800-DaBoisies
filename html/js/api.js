@@ -1,6 +1,9 @@
+//Trove api key rcarrier's
 var apikey = "j0porbqbr4efdh2c";
-
+//List of the available trove zones
 var zones = ["map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"];
+//Create an empty object, eventually this will prbably be manually fleshed out
+// when we figure out the weightings.
 var ZoneWeight = {};
 for (var z in zones) {
     //We will probs eventually just have this all listed out manually
@@ -15,8 +18,13 @@ for (var z in zones) {
         };
     }
 }
+//Set up a global result var, this is more for later use when we want all the
+// details saved rather than getting passed around in functions
 var result;
 
+//get gets the search from the zone and appends the response to the div specified.
+//In its current state it gets the relevance (with weighting) and the relevance
+// without weighting.
 function get(div, zone, search) {
     //TODO: Some shit when we get 500 response
     var URL = "http://api.trove.nla.gov.au/result?key=" + apikey + "&encoding=json&zone=" +
@@ -51,11 +59,5 @@ function relevance() {
     }
     return total;
 }
-
-
-
-
+//This shoudl be on doc load in the future, but doesn't need to be during testing
 get("#search", "all", "britney spears");
-//alert(get("all","bananas"));
-//$("#search").clear();
-//$('#search').append(get("all","test"));
