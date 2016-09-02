@@ -1,5 +1,12 @@
 //Trove api key rcarrier's
-var apikey = "j0porbqbr4efdh2c";
+var apikeys = [
+    "j0porbqbr4efdh2c", //rcarrier
+    "ulsmhsa32qhk0fhv", //robin
+    "a79q82q1nosa67ck", //sam
+    "8lkjcg45qi640t9s", //big dongs
+    "grcr2nt2i61ourfj" //georgie
+];
+var keyindex = 0;
 //List of the available trove zones
 var zones = ["map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"];
 
@@ -27,8 +34,10 @@ for (var z in zones) {
 var result;
 
 function urlBuilder(zone, search) {
+    key = apikeys[keyindex];
+    keyindex = (keyindex + 1) % apikeys.length;
     search = search.replace(/ /g, "%20");
-    return "http://api.trove.nla.gov.au/result?key=" + apikey + "&encoding=json&zone=" +
+    return "http://api.trove.nla.gov.au/result?key=" + key + "&encoding=json&zone=" +
         zone + "&q=" + search + "&callback=?";
 }
 
@@ -84,7 +93,7 @@ function getForbes() {
     $.getJSON(URL, function(response) {
         //console.log(JSON.stringify(response.response.zone[0].records.list[0]));
         for (var item in response.response.zone[0].records.list[0].listItem) {
-            item = response.response.zone[0].records.list[0].listItem[item].people;
+            item = response.response.zone[0].records.list[0].listItem[item].people[0].url;
             $("#forbes").append(JSON.stringify(item));
             $("#forbes").append("</br>");
         }
@@ -96,7 +105,7 @@ function getForbes() {
 //run when window is loaded
 $(window).load(function() {
     $(help).append("If nothing is coming up, check if it is 'waiting for trove' in the bottom right corner. If it is refresh the page.");
-    $(help).append("Also open up the dev console for more dettails.<br><br>");
+    $(help).append("Also open up the dev console for more details.<br><br>");
     getForbes();
     genericGet("britney spears");
     genericGet("Steve Irwin");
