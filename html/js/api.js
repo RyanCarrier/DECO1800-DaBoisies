@@ -33,7 +33,7 @@ for (var z in zones) {
 // details saved rather than getting passed around in functions
 var result;
 
-function urlBuilder(zone, search) {
+function troveUrlBuilder(zone, search) {
     key = apikeys[keyindex];
     keyindex = (keyindex + 1) % apikeys.length;
     search = search.replace(/ /g, "%20");
@@ -48,7 +48,7 @@ function get(div, zone, search) {
     //TODO: Some shit when we get 500 response
     //took this out of get cause we shouldn't ever need to specify zone
     //zone = "all";
-    URL = urlBuilder(zone, search);
+    URL = troveUrlBuilder(zone, search);
     console.log(URL);
     $.getJSON(URL, function(response) {
         //Note this runs async so will need a loaded=false/true field
@@ -66,6 +66,33 @@ function get(div, zone, search) {
 //get wrapper for the lazy
 function genericGet(search) {
     get("#search", "all", search);
+}
+
+function peopleUrlBuilder(search) {
+    search = search.replace(/ /g, "%20");
+    return "http://www.nla.gov.au/apps/srw/opensearch/peopleaustralia?q=" + search + "&callback=?";
+}
+
+function getName(search) {
+    URL = peopleUrlBuilder(search);
+    console.log(URL);
+    $.ajax({
+        type: "GET",
+        url: URL,
+        crossDomain: true,
+        dataType: 'jsonp',
+        //dataType: "xml",
+        success: xmlParser
+    });
+}
+
+function xmlParser(xml) {
+    $("#names").append(xml + "<br>");
+    /*$(xml).find("item").each(function(item) {
+        $(item).find("title").each(function(name) {
+            $("#names").append(name + "<br>");
+        });
+    });*/
 }
 
 function relevanceNoWeighting() {
@@ -88,13 +115,15 @@ function relevance() {
 }
 
 function getForbes() {
-    URL = urlBuilder("list", "top") + "&include=listItems";
+    URL = troveUrlBuilder("list", "top") + "&include=listItems";
     console.log(URL);
     $.getJSON(URL, function(response) {
         //console.log(JSON.stringify(response.response.zone[0].records.list[0]));
         for (var item in response.response.zone[0].records.list[0].listItem) {
             item = response.response.zone[0].records.list[0].listItem[item].people[0].url;
-            $("#forbes").append(JSON.stringify(item));
+            peopleid = JSON.stringify(item).split("/")[2].replace("\"", "");
+            $("#forbes").append(peopleid);
+            getName(peopleid);
             $("#forbes").append("</br>");
         }
         //forbes = response;
