@@ -19,6 +19,15 @@ type apiHandler struct{}
 func main() {
 
 	log.Info("Listening on http://localhost:8080/")
+	log.Info(`To get people use the api;
+http://localhost:8080/api/people/:peopleid
+Try using some of the id's from forbes list;
+946924
+1456345
+1163655
+1479624
+1503477
+		`)
 	http.ListenAndServe(":8080", setupHandlers())
 }
 
