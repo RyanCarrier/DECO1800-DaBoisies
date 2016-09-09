@@ -65,7 +65,20 @@ Try using some of the id's from forbes list;
 func setupHandlers() *http.ServeMux {
 	h := http.NewServeMux()
 	fh := http.Handler(&fileHandler{http.Dir("html")})
-
+	if len(os.Args) > 1 {
+		h.HandleFunc("/log", func(w http.ResponseWriter, r *http.Request) {
+			filename := os.Args[1]
+			if filename[len(filename)-4:] != ".log" {
+				filename += ".log"
+			}
+			body, err := ioutil.ReadFile(filename)
+			if err != nil {
+				w.Write([]byte("Couldn't read log at " + filename))
+			} else {
+				w.Write(body)
+			}
+		})
+	}
 	//handle files
 	h.HandleFunc("/api/people/", func(w http.ResponseWriter, r *http.Request) {
 		logReq(r, r.URL.Path)
