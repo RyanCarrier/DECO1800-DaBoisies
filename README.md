@@ -2,6 +2,17 @@
 ## Help
 [http://rogerdudler.github.io/git-guide/](Git Gud)
 
+## Editing
+### I edited the server!
+run `./buildAll.sh` with a 64bit golang install before committing
+
+### I edited the HTML!
+Refresh your browser
+
+### I edited the javascript!
+Refresh your browser
+
+
 # Colours
 ## Blue
 
