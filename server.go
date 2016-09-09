@@ -5,10 +5,12 @@ import (
 	"io/ioutil"
 	"net"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 
 	log "github.com/Sirupsen/logrus"
+	"golang.org/x/crypto/ssh/terminal"
 )
 
 type fileHandler struct {
@@ -16,6 +18,11 @@ type fileHandler struct {
 }
 type apiHandler struct{}
 
+func init() {
+	if !isTTY() {
+		log.SetFormatter(&StdFormatter{})
+	}
+}
 func main() {
 
 	log.Info("Listening on http://localhost:8080/")
@@ -105,4 +112,36 @@ func logReq(r *http.Request, upath string) {
 	} else {
 		log.Info(upath, " from ", r.Header.Get("X-Forwarded-For"))
 	}
+}
+
+func isTTY() bool {
+	return terminal.IsTerminal(int(os.Stdout.Fd()))
+}
+
+//StdFormatter for non tty
+type StdFormatter struct {
+	// TimestampFormat sets the format used for marshaling timestamps.
+	TimestampFormat string
+}
+
+//Format the entry to stdstring for non tty
+func (f *StdFormatter) Format(entry *log.Entry) ([]byte, error) {
+	data := make(log.Fields, len(entry.Data)+3)
+	for k, v := range entry.Data {
+		switch v := v.(type) {
+		case error:
+			// Otherwise errors are ignored by `encoding/json`
+			// https://github.com/Sirupsen/logrus/issues/137
+			data[k] = v.Error()
+		default:
+			data[k] = v
+		}
+	}
+
+	timestampFormat := f.TimestampFormat
+	if timestampFormat == "" {
+		timestampFormat = log.DefaultTimestampFormat
+	}
+
+	return []byte(entry.Time.Format(timestampFormat) + " " + entry.Message), nil
 }
