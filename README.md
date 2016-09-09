@@ -4,7 +4,7 @@
 
 ## Running
 ### Where is the server!?
-Unix extract with `./extract.sh`
+Unix extract with `./extract.sh` \*
 
 Windows install 7zip or some shit and extract it to the same directory
 
@@ -23,4 +23,4 @@ Refresh your browser
 ### I edited the javascript!
 Refresh your browser
 
-
+\* But ryan, why would you have a one line script just to extract a zip. Fuck you I'm lazy that's why
