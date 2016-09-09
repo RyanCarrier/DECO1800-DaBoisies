@@ -2,10 +2,12 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"net"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 	"sync"
@@ -17,10 +19,33 @@ import (
 const attemptMax = 2
 const attemptMax503 = 10
 
+const port = 8080
+
 type fileHandler struct {
 	root http.FileSystem
 }
 type apiHandler struct{}
+
+func init() {
+	if len(os.Args) > 1 {
+		if os.Args[1][0] == '-' {
+			cliHelp()
+			os.Exit(0)
+		}
+		filename := os.Args[1]
+		if filename[len(filename)-4:] != ".log" {
+			filename += ".log"
+		}
+		f, err := os.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0755)
+		if err != nil {
+			log.Error("Couldn't open file")
+		} else {
+			log.SetOutput(f)
+			fmt.Println("Listening on :" + strconv.Itoa(port))
+			fmt.Println("Logging to", filename)
+		}
+	}
+}
 
 func main() {
 
@@ -174,4 +199,8 @@ func tryAgain(ID int, attempt int, err error) string {
 		return getName(ID, attempt, 0)
 	}
 	return err.Error()
+}
+
+func cliHelp() {
+	fmt.Println("./server [logfile|--help]")
 }
