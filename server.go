@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"math/rand"
 	"net"
 	"net/http"
 	"os"
@@ -17,7 +18,7 @@ import (
 )
 
 const attemptMax = 2
-const attemptMax503 = 10
+const attemptMax503 = 30
 
 const port = 80
 
@@ -136,7 +137,7 @@ func getName(ID int, attempt int, attempt503 int) string {
 	}
 	if resp.StatusCode == 503 {
 		log.Error("503 try again;", ID)
-		time.Sleep(time.Millisecond * 50)
+		time.Sleep(time.Millisecond * 10 * time.Duration(rand.Intn(25)))
 		return getName(ID, attempt, attempt503+1)
 	}
 	return decodeXML(ID, attempt, resp.Body)
