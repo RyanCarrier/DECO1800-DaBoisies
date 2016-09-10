@@ -9,7 +9,8 @@ var apikeys = [
 var keyindex = 0;
 //List of the available trove zones
 var zones = ["map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"];
-
+var names = [];
+var Loading = true;
 //Init forbes var
 var forbes;
 
@@ -73,13 +74,31 @@ function peopleUrlBuilder(search) {
     return "http://www.nla.gov.au/apps/srw/opensearch/peopleaustralia?q=" + search + "&callback=?";
 }
 
-function getName(search, div) {
-    $.get("/api/people/" + search, function(data) {
-        //$(div).append(data);
-        data.split(",").forEach(function(name) {
-            genericGet(name);
+function getName(search) {
+    var names = "";
+    if (search.indexOf(",") > -1) {
+        $.ajax({
+            dataType: "text",
+            url: "/api/people/" + search,
+            async: false,
+            success: function(data) {
+                data.split(",").forEach(function(name) {
+                    names += name + ",";
+                });
+                names = names.slice(0, -1);
+            }
         });
-    });
+    } else {
+        $.ajax({
+            dataType: "text",
+            url: "/api/people/" + search,
+            async: false,
+            success: function(data) {
+                names += data;
+            }
+        });
+    }
+    return names;
 }
 
 function relevanceNoWeighting() {
@@ -104,20 +123,28 @@ function relevance() {
 function getForbes() {
     URL = troveUrlBuilder("list", "top") + "&include=listItems";
     console.log(URL);
-    var idList = "";
+    var nameList = [];
+    idList = "";
+    //  var done = false;
     $.getJSON(URL, function(response) {
         for (var item in response.response.zone[0].records.list[0].listItem) {
             item = response.response.zone[0].records.list[0].listItem[item].people[0].url;
             peopleid = JSON.stringify(item).split("/")[2].replace("\"", "");
             idList += peopleid + ",";
         }
-        getName(idList.slice(0, -1), "#forbes");
+        nameList = getName(idList.slice(0, -1)).split(",");
+        Loading = false;
+        for (var i = 0, len = nameList.length; i < len; i++) {
+            genericGet(nameList[i]);
+        }
+        $("#floatingCirclesG").hide();
+        $("#loading").hide();
     });
 }
 
 //run when window is loaded
 $(window).load(function() {
-    $(help).append("If nothing is coming up, check if it is 'waiting for trove' in the bottom right corner. If it is refresh the page.");
-    $(help).append("Also open up the dev console for more details.<br><br>");
+    //$(help).append("If nothing is coming up, check if it is 'waiting for trove' in the bottom right corner. If it is refresh the page.");
+    //$(help).append("Also open up the dev console for more details.<br><br>");
     getForbes();
 }());
