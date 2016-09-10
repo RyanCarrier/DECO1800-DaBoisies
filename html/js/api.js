@@ -73,26 +73,13 @@ function peopleUrlBuilder(search) {
     return "http://www.nla.gov.au/apps/srw/opensearch/peopleaustralia?q=" + search + "&callback=?";
 }
 
-function getName(search) {
-    URL = peopleUrlBuilder(search);
-    console.log(URL);
-    $.ajax({
-        type: "GET",
-        url: URL,
-        crossDomain: true,
-        dataType: 'jsonp',
-        //dataType: "xml",
-        success: xmlParser
-    });
-}
-
-function xmlParser(xml) {
-    $("#names").append(xml + "<br>");
-    /*$(xml).find("item").each(function(item) {
-        $(item).find("title").each(function(name) {
-            $("#names").append(name + "<br>");
+function getName(search, div) {
+    $.get("/api/people/" + search, function(data) {
+        //$(div).append(data);
+        data.split(",").forEach(function(name) {
+            genericGet(name);
         });
-    });*/
+    });
 }
 
 function relevanceNoWeighting() {
@@ -117,17 +104,14 @@ function relevance() {
 function getForbes() {
     URL = troveUrlBuilder("list", "top") + "&include=listItems";
     console.log(URL);
+    var idList = "";
     $.getJSON(URL, function(response) {
-        //console.log(JSON.stringify(response.response.zone[0].records.list[0]));
         for (var item in response.response.zone[0].records.list[0].listItem) {
             item = response.response.zone[0].records.list[0].listItem[item].people[0].url;
             peopleid = JSON.stringify(item).split("/")[2].replace("\"", "");
-            $("#forbes").append(peopleid);
-            getName(peopleid);
-            $("#forbes").append("</br>");
+            idList += peopleid + ",";
         }
-        //forbes = response;
-        //$("#forbes").append(JSON.stringify(response));
+        getName(idList.slice(0, -1), "#forbes");
     });
 }
 
@@ -136,7 +120,4 @@ $(window).load(function() {
     $(help).append("If nothing is coming up, check if it is 'waiting for trove' in the bottom right corner. If it is refresh the page.");
     $(help).append("Also open up the dev console for more details.<br><br>");
     getForbes();
-    genericGet("britney spears");
-    genericGet("Steve Irwin");
-    genericGet("your mom");
 }());
