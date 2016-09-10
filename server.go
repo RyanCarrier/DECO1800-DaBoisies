@@ -19,7 +19,7 @@ import (
 const attemptMax = 2
 const attemptMax503 = 10
 
-const port = 8080
+const port = 80
 
 type fileHandler struct {
 	root http.FileSystem
@@ -48,18 +48,8 @@ func init() {
 }
 
 func main() {
-
-	log.Info("Listening on http://localhost:8080/")
-	log.Info(`To get people use the api;
-http://localhost:8080/api/people/:peopleid
-Try using some of the id's from forbes list;
-946924
-1456345
-1163655
-1479624
-1503477
-		`)
-	http.ListenAndServe(":8080", setupHandlers())
+	initHelp()
+	log.Error(http.ListenAndServe(":"+strconv.Itoa(port), setupHandlers()))
 }
 
 func setupHandlers() *http.ServeMux {
@@ -199,7 +189,7 @@ func (f *fileHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func logReq(r *http.Request, upath string) {
-	if net.ParseIP(r.RemoteAddr) == nil {
+	if net.ParseIP(r.RemoteAddr) != nil {
 		log.Info(upath, " from ", net.ParseIP(r.RemoteAddr))
 	} else {
 		log.Info(upath, " from ", r.Header.Get("X-Forwarded-For"))
@@ -212,6 +202,19 @@ func tryAgain(ID int, attempt int, err error) string {
 		return getName(ID, attempt, 0)
 	}
 	return err.Error()
+}
+
+func initHelp() {
+	log.Info("Listening on http://localhost:" + strconv.Itoa(port))
+	log.Info(`To get people use the api;
+http://localhost:` + strconv.Itoa(port) + `/api/people/:peopleid
+Try using some of the id's from forbes list;
+946924
+1456345
+1163655
+1479624
+1503477
+		`)
 }
 
 func cliHelp() {
