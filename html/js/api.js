@@ -10,6 +10,7 @@ var keyindex = 0;
 //List of the available trove zones
 var zones = ["map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"];
 var names = [];
+var loaded = [];
 var Loading = true;
 //Init forbes var
 var forbes;
@@ -45,10 +46,11 @@ function troveUrlBuilder(zone, search) {
 //get gets the search from the zone and appends the response to the div specified.
 //In its current state it gets the relevance (with weighting) and the relevance
 // without weighting.
-function get(div, zone, search) {
+function get(div, zone, search, i) {
     //TODO: Some shit when we get 500 response
     //took this out of get cause we shouldn't ever need to specify zone
     //zone = "all";
+
     URL = troveUrlBuilder(zone, search);
     console.log(URL);
     $.getJSON(URL, function(response) {
@@ -61,44 +63,18 @@ function get(div, zone, search) {
         $(div).append("<br>Without weighting;<br>");
         $(div).append(relevanceNoWeighting());
         $(div).append("<br>");
+        loaded[i] = true;
     });
 }
 
 //get wrapper for the lazy
-function genericGet(search) {
-    get("#search", "all", search);
+function genericGet(search, i) {
+    get("#search", "all", search, i);
 }
 
 function peopleUrlBuilder(search) {
     search = search.replace(/ /g, "%20");
-    return "http://www.nla.gov.au/apps/srw/opensearch/peopleaustralia?q=" + search + "&callback=?";
-}
-
-function getName(search) {
-    var names = "";
-    if (search.indexOf(",") > -1) {
-        $.ajax({
-            dataType: "text",
-            url: "/api/people/" + search,
-            async: false,
-            success: function(data) {
-                data.split(",").forEach(function(name) {
-                    names += name + ",";
-                });
-                names = names.slice(0, -1);
-            }
-        });
-    } else {
-        $.ajax({
-            dataType: "text",
-            url: "/api/people/" + search,
-            async: false,
-            success: function(data) {
-                names += data;
-            }
-        });
-    }
-    return names;
+    return "http://www.nla.gov.au/apps/srw/opensearch/peopleaustralia?q=" + search; //+ "&callback=?";
 }
 
 function relevanceNoWeighting() {
@@ -132,14 +108,42 @@ function getForbes() {
             peopleid = JSON.stringify(item).split("/")[2].replace("\"", "");
             idList += peopleid + ",";
         }
-        nameList = getName(idList.slice(0, -1)).split(",");
-        Loading = false;
-        for (var i = 0, len = nameList.length; i < len; i++) {
-            genericGet(nameList[i]);
-        }
-        $("#floatingCirclesG").hide();
-        $("#loading").hide();
+        $.ajax({
+            dataType: "text",
+            url: "/api/people/" + idList.slice(0, -1),
+            success: function(data) {
+                names = "";
+                data.split(",").forEach(function(name) {
+                    names += name + ",";
+                });
+                nameList = names.slice(0, -1).split(",");
+                for (var i = 0, len = nameList.length; i < len; i++) {
+                    loaded[i] = false;
+                    genericGet(nameList[i], i);
+                }
+                isLoaded = false;
+                while (isLoaded === false) {
+                    isLoaded = true;
+                    /*
+                                                for (i = 0, len = nameList.length; i < len; i++) {
+                                                    //console.log(loaded);
+                                                    if (loaded[i] === false) {
+                                                        isLoaded = false;
+                                                        break;
+                                                    }
+                        }*/
+                }
+                stopLoading();
+            }
+        });
+
     });
+}
+
+function stopLoading() {
+    Loading = false;
+    $("#floatingCirclesG").hide();
+    $("#loadingDiv").hide();
 }
 
 //run when window is loaded
