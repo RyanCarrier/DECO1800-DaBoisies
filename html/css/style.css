@@ -12,4 +12,14 @@ body {
 
 #mainLogo {
     background-image: url("../img/logo2.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: block;
+    height: 336px;
+    width: 576px;
+    overflow: hidden;
+    white-space: nowrap;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
 }
