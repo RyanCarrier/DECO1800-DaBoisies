@@ -9,3 +9,7 @@ body {
     background-size: cover;
     background-color: white;
 }
+
+#mainLogo {
+    background-image: url("../img/logo2.png");
+}
