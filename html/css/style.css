@@ -8,6 +8,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-color: white;
+    width: 80%;
 }
 
 #mainLogo {
@@ -20,6 +21,5 @@ body {
     overflow: hidden;
     white-space: nowrap;
     float: left;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: auto;
 }
