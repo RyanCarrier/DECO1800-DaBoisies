@@ -1,2 +1,3 @@
-*Server*
+*server*
 *.log
+!server.go
