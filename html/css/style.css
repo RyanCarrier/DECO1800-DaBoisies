@@ -1,23 +1,26 @@
 body {
     font-size: 1.2em;
-    color white;
-    padding: 2.5%;
+    color: white;
     background-image: url("../img/pink.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-color: white;
-    width: 80%;
+    width: 100%;
 }
 
-#mainLogo {
-    background-image: url("../img/logo2.png");
+#logo {
+    position: absolute;
+    margin: auto;
+    display: inline-block;
+    top: 15%;
+    left: 33.75%;
+    margin: auto;background-image: url("../img/logo2.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    display: block;
-    height: 336px;
-    width: 576px;
+    height: 50%;
+    width: 30%;
     overflow: hidden;
     white-space: nowrap;
     float: left;
