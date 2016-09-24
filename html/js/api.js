@@ -143,7 +143,7 @@ function getForbes() {
 function stopLoading() {
     Loading = false;
     $("#floatingCirclesG").hide();
-    $("#loadingDiv").hide();
+    $("#loading").hide();
 }
 
 //run when window is loaded
