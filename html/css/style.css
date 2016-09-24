@@ -9,6 +9,7 @@ body {
     background-color: white;
     height: 100%;
 	width: 100%;
+	/*overflow: hidden;*/
 }
 
 .logo {
@@ -20,4 +21,76 @@ body {
     height: 30%;
     width: 25%;
 	margin-top: 2.5%;
+}
+
+#tutBox {
+	color: white;
+	margin: auto;
+	display: block;
+	background-color: orange;
+	width: 60%;
+	margin-top: 2.5%;
+	padding: 2em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 4px;
+	border: 2px solid yellow;
+}
+
+#skipButton {
+	margin: auto;
+	display: block;
+	background-color: orange;
+	width: 100px;
+	margin-top: 2.5%;
+	padding-top: 1.25em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border: 2px solid yellow;
+}
+
+#arrow {
+	top: 40%;
+	right: 175px;
+	color: white;
+	position: absolute;
+	background-color: orange;
+	width: 100px;
+	margin-top: 2.5%;
+	padding-top: 1.25em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border: 2px solid yellow;
+}
+
+#skipButton:hover, #arrow:hover, #tutRightArrow, #tutLeftArrow {
+	background-color: #FFB071;
+}
+
+#tutRightArrow {
+	top: 40%;
+	right: 175px;
+	color: white;
+	position: absolute;
+	background-color: orange;
+	width: 100px;
+	margin-top: 2.5%;
+	padding-top: 1.25em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border: 2px solid yellow;
+}
+
+#tutLeftArrow {
+	top: 40%;
+	left: 175px;
+	color: white;
+	position: absolute;
+	background-color: orange;
+	width: 100px;
+	margin-top: 2.5%;
+	padding-top: 1.25em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border: 2px solid yellow;
 }
