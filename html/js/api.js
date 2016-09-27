@@ -151,6 +151,30 @@ $(window).load(function() {
     //$(help).append("If nothing is coming up, check if it is 'waiting for trove' in the bottom right corner. If it is refresh the page.");
     //$(help).append("Also open up the dev console for more details.<br><br>");
     getForbes();
+	$("#tutBox2").hide();
+	$("#tutLeftArrow2").hide();
+	$("#tutRightArrow2").hide();
+	$("#tutBox3").hide();
+	$("#tutLeftArrow3").hide();
+	$("#tutRightArrow3").hide();
+	$("#tutBox4").hide();
+	$("#tutLeftArrow4").hide();
+	$("#tutRightArrow4").hide();
+	$("#tutBox5").hide();
+	$("#tutLeftArrow5").hide();
+	$("#tutRightArrow5").hide();
+	$("#tutBox6").hide();
+	$("#tutLeftArrow6").hide();
+	$("#tutRightArrow6").hide();
+	$("#tutBox7").hide();
+	$("#tutLeftArrow7").hide();
+	$("#tutRightArrow7").hide();
+	$("#tutBox8").hide();
+	$("#tutLeftArrow8").hide();
+	$("#tutRightArrow8").hide();
+	$("#tutBox9").hide();
+	$("#tutLeftArrow9").hide();
+	$("#tutRightArrow9").hide();
 }());
 
 function openHelp() {
@@ -160,4 +184,162 @@ function openHelp() {
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeHelp() {
     document.getElementById("help").style.width = "0%";
+}
+
+function beginTutorial() {
+	$("#tutBox").hide();
+	$("#skipButton").hide();
+	$("#arrow").hide();
+	$("#tutBox2").show();
+	$("#tutLeftArrow2").show();
+	$("#tutRightArrow2").show();
+}
+
+function back2welcome() {
+	$("#tutBox").show();
+	$("#skipButton").show();
+	$("#arrow").show();
+	$("#tutBox2").hide();
+	$("#tutLeftArrow2").hide();
+	$("#tutRightArrow2").hide();
+}
+
+function to4howto() {
+	$("#tutBox2").hide();
+	$("#tutLeftArrow2").hide();
+	$("#tutRightArrow2").hide();
+	$("#tutBox3").show();
+	$("#tutLeftArrow3").show();
+	$("#tutRightArrow3").show();
+}
+
+function back2objective() {
+	$("#tutBox3").hide();
+	$("#tutLeftArrow3").hide();
+	$("#tutRightArrow3").hide();
+	$("#tutBox2").show();
+	$("#tutLeftArrow2").show();
+	$("#tutRightArrow2").show();
+}
+
+function toStep1() {
+	$("#tutBox3").hide();
+	$("#tutLeftArrow3").hide();
+	$("#tutRightArrow3").hide();
+	$("#tutBox4").show();
+	$("#tutLeftArrow4").show();
+	$("#tutRightArrow4").show();
+}
+
+function back2howto() {
+	$("#tutBox4").hide();
+	$("#tutLeftArrow4").hide();
+	$("#tutRightArrow4").hide();
+	$("#tutBox3").show();
+	$("#tutLeftArrow3").show();
+	$("#tutRightArrow3").show();
+}
+
+function toStep2() {
+	$("#tutBox4").hide();
+	$("#tutLeftArrow4").hide();
+	$("#tutRightArrow4").hide();
+	$("#tutBox5").show();
+	$("#tutLeftArrow5").show();
+	$("#tutRightArrow5").show();
+}
+
+function back2step1() {
+	$("#tutBox5").hide();
+	$("#tutLeftArrow5").hide();
+	$("#tutRightArrow5").hide();
+	$("#tutBox4").show();
+	$("#tutLeftArrow4").show();
+	$("#tutRightArrow4").show();
+}
+
+function toStep3() {
+	$("#tutBox6").show();
+	$("#tutLeftArrow6").show();
+	$("#tutRightArrow6").show();
+	$("#tutBox5").hide();
+	$("#tutLeftArrow5").hide();
+	$("#tutRightArrow5").hide();
+}
+
+function back2step2() {
+	$("#tutBox6").hide();
+	$("#tutLeftArrow6").hide();
+	$("#tutRightArrow6").hide();
+	$("#tutBox5").show();
+	$("#tutLeftArrow5").show();
+	$("#tutRightArrow5").show();
+}
+
+function toStep4() {
+	$("#tutBox6").hide();
+	$("#tutLeftArrow6").hide();
+	$("#tutRightArrow6").hide();
+	$("#tutBox7").show();
+	$("#tutLeftArrow7").show();
+	$("#tutRightArrow7").show();
+}
+
+function back2step3() {
+	$("#tutBox7").hide();
+	$("#tutLeftArrow7").hide();
+	$("#tutRightArrow7").hide();
+	$("#tutBox6").show();
+	$("#tutLeftArrow6").show();
+	$("#tutRightArrow6").show();
+}
+
+function to9howto() {
+	$("#tutBox7").hide();
+	$("#tutLeftArrow7").hide();
+	$("#tutRightArrow7").hide();
+	$("#tutBox8").show();
+	$("#tutLeftArrow8").show();
+	$("#tutRightArrow8").show();
+}
+
+function back2step4() {
+	$("#tutBox7").show();
+	$("#tutLeftArrow7").show();
+	$("#tutRightArrow7").show();
+	$("#tutBox8").hide();
+	$("#tutLeftArrow8").hide();
+	$("#tutRightArrow8").hide();
+}
+
+function toLeaderBoard() {
+	$("#tutBox8").hide();
+	$("#tutLeftArrow8").hide();
+	$("#tutRightArrow8").hide();
+	$("#tutBox9").show();
+	$("#tutLeftArrow9").show();
+	$("#tutRightArrow9").show();
+}
+
+function backToLeaderBoard() {
+	$("#tutBox9").hide();
+	$("#tutLeftArrow9").hide();
+	$("#tutRightArrow9").hide();
+	$("#tutBox8").show();
+	$("#tutLeftArrow8").show();
+	$("#tutRightArrow8").show();
+}
+
+function tutToHome() {
+	//$("#tutBox9").hide();
+	//$("#tutLeftArrow9").hide();
+	//$("#tutRightArrow9").hide();
+	// go to home page
+}
+
+function skipTutorial() {	
+	//$("#tutBox").hide();
+	//$("#skipButton").hide();
+	//$("#arrow").hide();
+	// go to home page
 }
