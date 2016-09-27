@@ -152,3 +152,12 @@ $(window).load(function() {
     //$(help).append("Also open up the dev console for more details.<br><br>");
     getForbes();
 }());
+
+function openHelp() {
+    document.getElementById("help").style.width = "100%";
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeHelp() {
+    document.getElementById("help").style.width = "0%";
+}
