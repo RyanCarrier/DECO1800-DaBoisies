@@ -9,7 +9,7 @@ body {
     background-color: white;
     height: 100%;
 	width: 100%;
-	/*overflow: hidden;*/
+	overflow: hidden;	
 }
 
 .logo {
@@ -63,7 +63,7 @@ body {
 	border: 2px solid yellow;
 }
 
-#skipButton:hover, #arrow:hover, #tutRightArrow, #tutLeftArrow {
+#skipButton:hover, #arrow:hover, #tutRightArrow, #tutLeftArrow, #helperButton:hover  {
 	background-color: #FFB071;
 }
 
@@ -93,4 +93,64 @@ body {
 	text-align: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border: 2px solid yellow;
+}
+
+.helper {
+	height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(134, 1, 153);
+    background-color: rgba(134, 1, 153, 0.95);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.help-content {
+	margin: auto;
+	color: white;
+	position: relative;
+	top: 5%;
+	width: 600px;
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+.helper a {
+	padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: white;
+    display: block;/
+    transition: 0.3s;
+}
+
+.helper a:hover, .helper a:focus {
+    color: orange;
+}
+
+.helper .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+#helperButton {
+	color: white;
+	background-color: orange;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border: 2px solid orange;
+	top: 95.80%;
+	right: 5%;
+	width: 110%;
+	color: white;
+	position: relative;
+}
+
+#2welcome {
+	position:absolute;
 }
