@@ -20,6 +20,17 @@ import (
 const attemptMax = 2
 const attemptMax503 = 30
 
+var zones = []string{"map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"}
+
+//Trove api key rcarrier's
+var apikeys = []string{
+	"j0porbqbr4efdh2c", //rcarrier
+	"ulsmhsa32qhk0fhv", //robin
+	"a79q82q1nosa67ck", //sam
+	"8lkjcg45qi640t9s", //big dogs
+	"grcr2nt2i61ourfj", //georgie
+}
+
 const port = 80
 
 type fileHandler struct {
