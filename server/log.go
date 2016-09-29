@@ -18,6 +18,10 @@ func logReq(r *http.Request, upath string) {
 }
 
 func handleLog(w http.ResponseWriter, r *http.Request) {
+	if len(os.Args) < 2 {
+		w.Write([]byte("No logging file specified"))
+		return
+	}
 	filename := os.Args[1]
 	if filename[len(filename)-4:] != ".log" {
 		filename += ".log"

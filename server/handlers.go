@@ -2,7 +2,6 @@ package server
 
 import (
 	"net/http"
-	"os"
 	"strings"
 )
 
@@ -11,17 +10,17 @@ type fileHandler struct {
 }
 type apiHandler struct{}
 
+const htmlDir = "html"
+
 //SetupHandlers returns a handler for all the routes
 func SetupHandlers() *http.ServeMux {
 	h := http.NewServeMux()
-	fh := http.Handler(&fileHandler{http.Dir("html")})
-	if len(os.Args) > 1 {
-		h.HandleFunc("/log", handleLog)
+	//get and set all routes
+	for _, r := range GetRoutes() {
+		h.HandleFunc(r.Path, r.Handler)
 	}
-	//handle files
-	h.HandleFunc("/api/people/", handleNames)
-
-	h.Handle("/", fh)
+	//Set the default
+	h.Handle("/", http.Handler(&fileHandler{http.Dir(htmlDir)}))
 	return h
 }
 
