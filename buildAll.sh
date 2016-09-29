@@ -14,4 +14,4 @@ for OS in ${OSS[@]};do
 done
 echo -e "Done!\nAll ARCH=amd64"
 echo "Zipping..."
-env GZIP=-9 tar cvzf servers.tar.gz *Server* 
+env GZIP=-9 tar cvzf servers.tar.gz *Server*
