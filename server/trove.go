@@ -1,11 +1,16 @@
 package server
 
 import (
+	"errors"
 	"net/http"
 	"strings"
+
+	log "github.com/Sirupsen/logrus"
 )
 
 var zones = []string{"map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"}
+
+const maxAttemptsList = 2
 
 //Trove api key rcarrier's
 var apikeys = []string{
@@ -30,5 +35,23 @@ func troveURLBuilder(zone, search string) string {
 }
 
 func handleList(w http.ResponseWriter, r *http.Request) {
+	logReq(r, r.URL.Path)
+	handleListAttempt(w, r, 0)
+}
 
+func handleListAttempt(w http.ResponseWriter, r *http.Request, attempt int) {
+
+}
+
+func getList(attempt int) ([]byte, error) {
+	if attempt > maxAttemptsList {
+		return []byte{}, errors.New("Max list get attempts reached")
+	}
+	listURL := troveURLBuilder("list", "top") + "&include=listItems"
+	body, err := http.Get(listURL)
+	if err != nil {
+		log.Error("error getting trove list, trying again", err)
+		return getList(attempt + 1)
+	}
+	return body, nil
 }
