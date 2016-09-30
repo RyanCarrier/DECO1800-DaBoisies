@@ -24,6 +24,22 @@ type Zone struct {
 type Record struct {
 	//note trove uses the total as a string not int
 	Total string `json:"total,omitempty"`
+	List  []List `json:"list,omitempty"`
+}
+
+//List is the list within the list for json parseing
+type List struct {
+	ListItem []ListItem `json:"listItem,omitempty"`
+}
+
+//ListItem is an item in the list when returned
+type ListItem struct {
+	People []People `json:"people,omitempty"`
+}
+
+//People is the json struct containing the people id
+type People struct {
+	ID string `json:"id,omitempty"`
 }
 
 //Clean converts the TopResponse to a CleanResponse

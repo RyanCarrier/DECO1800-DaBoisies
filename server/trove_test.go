@@ -2,6 +2,7 @@ package server
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"strings"
 	"testing"
@@ -63,6 +64,11 @@ func TestReturnResult(t *testing.T) {
 	}
 	marshalAndTest(t, got, want)
 }
+
+func TestListStructs(t *testing.T) {
+	body, _ := json.Marshal(getTopResponseList(t))
+	fmt.Println(string(body))
+}
 func TestReturnResultWithYear(t *testing.T) {
 	gotr := getTopResponse(t).Clean()
 	gotr.Year = 1234
@@ -77,6 +83,19 @@ func TestReturnResultWithYear(t *testing.T) {
 
 func getTopResponse(t *testing.T) TopResponse {
 	body, err := ioutil.ReadFile("testsearch.json")
+	if err != nil {
+		t.Error("Error reading from test file", err)
+	}
+	var gotr TopResponse
+	err = json.Unmarshal(body, &gotr)
+	if err != nil {
+		t.Error("Error unmarshaling", err)
+	}
+	return gotr
+}
+
+func getTopResponseList(t *testing.T) TopResponse {
+	body, err := ioutil.ReadFile("testlist.json")
 	if err != nil {
 		t.Error("Error reading from test file", err)
 	}

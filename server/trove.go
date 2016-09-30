@@ -2,7 +2,10 @@ package server
 
 import (
 	"errors"
+	"fmt"
+	"io/ioutil"
 	"net/http"
+	"strconv"
 	"strings"
 
 	log "github.com/Sirupsen/logrus"
@@ -10,7 +13,7 @@ import (
 
 var zones = []string{"map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"}
 
-const maxAttemptsList = 2
+const maxAttemptsList = 3
 
 //Trove api key rcarrier's
 var apikeys = []string{
@@ -43,15 +46,33 @@ func handleListAttempt(w http.ResponseWriter, r *http.Request, attempt int) {
 
 }
 
+func getListStruct(attempt int) error {
+	if attempt > maxAttemptsList {
+		return errors.New("Max list get attempts reached")
+	}
+	body, err := getList(attempt)
+	fmt.Println(string(body))
+	if err != nil {
+		log.Error(err)
+		getListStruct(attempt + 1)
+	}
+	return nil
+}
+
 func getList(attempt int) ([]byte, error) {
 	if attempt > maxAttemptsList {
 		return []byte{}, errors.New("Max list get attempts reached")
 	}
 	listURL := troveURLBuilder("list", "top") + "&include=listItems"
-	body, err := http.Get(listURL)
+	response, err := http.Get(listURL)
 	if err != nil {
 		log.Error("error getting trove list, trying again", err)
 		return getList(attempt + 1)
 	}
-	return body, nil
+	if response.StatusCode/100 != 2 {
+		err = errors.New("Response code non 200 " + strconv.Itoa(response.StatusCode))
+		log.Error(err)
+		return getList(attempt + 1)
+	}
+	return ioutil.ReadAll(response.Body)
 }
