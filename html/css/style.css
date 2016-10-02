@@ -9,7 +9,7 @@ body {
     background-color: white;
     height: 100%;
 	width: 100%;
-	overflow: hidden;	
+	overflow: hidden;
 }
 
 .logo {
@@ -37,7 +37,12 @@ body {
 }
 
 #board {
-	color: white;
+	color: orange;
+	font-size: 13px;
+}
+
+td {
+	width: 45%;
 }
 
 #guestLeaderBoard {	
@@ -63,7 +68,7 @@ body {
 	display: table;
 }
 
-#homeBtn {
+#homeBtn, #playBtn, #signUpBtn, #loginBtn {
 	background-color: orange;
 	text-align: center;
 	border-radius: 0px;
@@ -71,7 +76,36 @@ body {
 	width: 90%;
 }
 
-#homeBtn:hover {
+#round-indicator {
+	color: white;
+	font-size: 13px;
+	padding: 1%;
+	padding-top: 0.75%;
+	top: 10%;
+	left: 27.5%;
+	position: absolute;
+	height: 75px;
+	background-color: orange;
+	text-align: left;
+	border-radius: 0px;
+	border: 2px solid orange;
+	width: 10%;
+}
+
+#dmgBtn {
+	font-size: 13px;
+	top: 10%;
+	right: 27.5%;
+	position: absolute;
+	height: 75px;
+	background-color: orange;
+	text-align: center;
+	border-radius: 0px;
+	border: 2px solid orange;
+	width: 10%;
+}
+
+#homeBtn:hover, #playBtn:hover, #signUpBtn:hover, #loginBtn:hover, #dmgBtn:hover {
 	background-color: white;
 	color: orange;
 }
@@ -108,6 +142,7 @@ body {
 
 #skipButton:hover, #backTut:hover, #nextTut:hover, #helperButton:hover, #guestPlay:hover, #guestSignUp:hover, #guestLogin:hover {
 	background-color: #FFB070;
+	border: 2px solid #B52EFF;
 }
 
 #nextTut {
@@ -150,7 +185,7 @@ body {
     background-color: rgb(134, 1, 153);
     background-color: rgba(134, 1, 153, 0.95);
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.75s;
 }
 
 .help-content {
@@ -181,6 +216,7 @@ body {
     top: 20px;
     right: 45px;
     font-size: 60px;
+	color: white;
 }
 
 #helperButton {
@@ -194,4 +230,95 @@ body {
 	width: 110%;
 	color: white;
 	position: relative;
+}
+
+#helpExit, #signUpExit, #loginExit, #dmgExit {
+	position: fixed;
+}
+
+.closeSignUp, .closeLogin, .closeDmg {
+	position: absolute;
+    top: 100px;
+    right: 27.5%;
+    font-size: 40px;
+	color: white;
+}
+
+.closeSignUp:hover, .closeLogin:hover, .closeDmg:hover {
+	color: orange;
+}
+
+#signUpModal, #loginModal, #dmgModal {
+	padding-top: 5%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+}
+
+.modal-content {
+    position: fixed;
+    width: 100%;
+}
+
+.modal-header {
+    color: white;
+	border: 2px solid #B52EFF; /* POP UP WINDOW COLOUR + WHITE */
+	background-color: #B52EFF; /* POP UP WINDOW COLOUR + WHITE */
+	border-radius: 0px;
+}
+
+.modal-body {
+    padding: 15px 50px;
+	color: purple;
+	text-align: left;
+	border: 2px solid white;
+	border-radius: 0px;
+}
+
+#theSquad {
+	color: white;
+	margin: auto;
+	display: block;
+	background-color: orange;
+	width: 51%;
+	padding: 1.5em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	border: 2px solid orange;
+}
+
+.member {
+	float: left;
+	margin: auto;
+	display: block;
+	background-color: white;
+	height: 12.5%;
+	width: 100px;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+}
+
+#sm1, #sm2, #sm3, #sm4, #sm5, #sm6 {
+	margin: 20px;
+	padding: 5px;
+}
+
+.member:hover {
+	border: 2px solid #B52EFF;
+}
+
+.game-heading {
+	color: white;
+	padding: 1.5em;
+	text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 20px;
 }
