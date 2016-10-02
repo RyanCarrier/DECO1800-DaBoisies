@@ -18,9 +18,8 @@ body {
 	background-image: url("../img/logo2.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 30%;
-    width: 25%;
-	margin-top: 2.5%;
+    height: 25%;
+    width: 20%;
 }
 
 #tutBox, #tutBox2, #tutBox3, #tutBox4, #tutBox5, #tutBox6, #tutBox7, #tutBox8, #tutBox9 {
@@ -28,9 +27,66 @@ body {
 	margin: auto;
 	display: block;
 	background-color: orange;
-	width: 60%;
+	width: 55%;
+	margin-top: 5%;
+	padding: 2em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	border: 2px solid orange;
+}
+
+#board {
+	color: white;
+}
+
+#guestLeaderBoard {	
+	color: white;
+	margin: auto;
+	display: table;
+	background-color: orange;
+	height: 30%;
+	width: 55%;	
 	margin-top: 2.5%;
 	padding: 2em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	border: 2px solid orange;
+	overflow-x: auto;	
+}
+
+#homeOptions {
+	width: 57.75%;
+	margin-top: 5px;
+	padding-top: 1.25em;
+	display: table;
+}
+
+#homeBtn {
+	background-color: orange;
+	text-align: center;
+	border-radius: 0px;
+	border: 2px solid orange;
+	width: 90%;
+}
+
+#homeBtn:hover {
+	background-color: white;
+	color: orange;
+}
+
+#guestPlay, #guestSignUp, #guestLogin {
+	float: left;
+	color: white;
+	margin: auto;
+	display: block;
+	background-color: orange;
+	height: 10%;
+	width: 31%;
+	margin-left: 1.25%;
+	margin-right: 1%;
+	padding: 1em;
 	text-align: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 0px;
@@ -50,9 +106,13 @@ body {
 	border-radius: 0px;
 }
 
-#arrow {
+#skipButton:hover, #backTut:hover, #nextTut:hover, #helperButton:hover, #guestPlay:hover, #guestSignUp:hover, #guestLogin:hover {
+	background-color: #FFB070;
+}
+
+#nextTut {
 	top: 40%;
-	right: 175px;
+	right: 8.75%;
 	color: white;
 	position: absolute;
 	background-color: orange;
@@ -65,28 +125,9 @@ body {
 	border-radius: 0px;
 }
 
-#skipButton:hover, #arrow:hover, #tutRightArrow, #tutLeftArrow, #helperButton:hover  {
-	background-color: #FFB071;
-}
-
-#tutRightArrow, #tutRightArrow2, #tutRightArrow3, #tutRightArrow4, #tutRightArrow5, #tutRightArrow6, #tutRightArrow7, #tutRightArrow8, #tutRightArrow9 {
+#backTut {
 	top: 40%;
-	right: 175px;
-	color: white;
-	position: absolute;
-	background-color: orange;
-	width: 100px;
-	margin-top: 2.5%;
-	padding-top: 1.25em;
-	text-align: center;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border: 2px solid orange;
-	border-radius: 0px;
-}
-
-#tutLeftArrow, #tutLeftArrow2, #tutLeftArrow3, #tutLeftArrow4, #tutLeftArrow5, #tutLeftArrow6, #tutLeftArrow7, #tutLeftArrow8, #tutLeftArrow9 {
-	top: 40%;
-	left: 175px;
+	left: 8.75%;
 	color: white;
 	position: absolute;
 	background-color: orange;
