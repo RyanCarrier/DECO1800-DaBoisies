@@ -151,6 +151,7 @@ $(window).load(function() {
     //$(help).append("If nothing is coming up, check if it is 'waiting for trove' in the bottom right corner. If it is refresh the page.");
     //$(help).append("Also open up the dev console for more details.<br><br>");
     getForbes();
+	$("#helpExit").hide();
 	$("#backTut").hide();
 	$("#tutBox2").hide();
 	$("#tutBox3").hide();
@@ -164,16 +165,22 @@ $(window).load(function() {
 	$("#guestPlay").hide();
 	$("#guestSignUp").hide();
 	$("#guestLogin").hide();
+	$("#signUpModal").hide();
+	$("#loginModal").hide();
+	$("#16veryStart").hide();
+	$("#dmgModal").hide();
 	
 }());
 
 function openHelp() {
     document.getElementById("help").style.width = "100%";
+	$("#helpExit").show(1000);
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeHelp() {
     document.getElementById("help").style.width = "0%";
+	$("#helpExit").hide();
 }
 
 var tutState = 0;
@@ -301,7 +308,7 @@ function goHome1() {
 	$("#guestSignUp").show();
 	$("#guestLogin").show();
 	$("#backTut").show();
-	document.getElementById("backTut").innerHTML = "<p>Try Our<br>Tutorial<p>";
+	document.getElementById("backTut").innerHTML = "<p>Try The<br>Tutorial<p>";
 	document.getElementById("backTut").onclick = function (){ next() };
 	tutState = 0;
 }
@@ -320,4 +327,43 @@ function goHome2() {
 	document.getElementById("backTut").innerHTML = "<p>Back To<br>Tutorial<p>";
 	document.getElementById("backTut").onclick = function (){ next() };
 	tutState = 7;
+}
+
+var signUpModal = document.getElementById('signUpModal');
+var signUpBtn = document.getElementById("signUpBtn");
+var closeSignUp = document.getElementsByClassName("closeSignUp")[0];
+signUpBtn.onclick = function() {
+    signUpModal.style.display = "block";
+}
+closeSignUp.onclick = function() {
+    signUpModal.style.display = "none";
+}
+
+var loginModal = document.getElementById('loginModal');
+var loginBtn = document.getElementById("loginBtn");
+var closeLogin = document.getElementsByClassName("closeLogin")[0];
+loginBtn.onclick = function() {
+    loginModal.style.display = "block";
+}
+closeLogin.onclick = function() {
+    loginModal.style.display = "none";
+}
+
+function playGame() {
+	$("#guestLeaderBoard").hide();
+	$("#guestPlay").hide();
+	$("#guestSignUp").hide();
+	$("#guestLogin").hide();
+	$("#backTut").hide();
+	$("#16veryStart").show();
+}
+
+var dmgModal = document.getElementById('dmgModal');
+var dmgBtn = document.getElementById("dmgBtn");
+var closeDmg = document.getElementsByClassName("closeDmg")[0];
+dmgBtn.onclick = function() {
+    dmgModal.style.display = "block";
+}
+closeDmg.onclick = function() {
+    dmgModal.style.display = "none";
 }
