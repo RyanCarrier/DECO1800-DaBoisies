@@ -169,6 +169,10 @@ $(window).load(function() {
 	$("#loginModal").hide();
 	$("#16veryStart").hide();
 	$("#dmgModal").hide();
+	$("#gameIndicators").hide();
+	$("#19step1").hide();
+	$("#20step2").hide();
+	$("#23step3").hide();
 	
 }());
 
@@ -356,6 +360,7 @@ function playGame() {
 	$("#guestLogin").hide();
 	$("#backTut").hide();
 	$("#16veryStart").show();
+	$("#gameIndicators").show();
 }
 
 var dmgModal = document.getElementById('dmgModal');
@@ -366,4 +371,33 @@ dmgBtn.onclick = function() {
 }
 closeDmg.onclick = function() {
     dmgModal.style.display = "none";
+}
+
+function toStep1() {
+	$("#16veryStart").hide();
+	$("#19step1").show();
+}
+
+var step1Modal = document.getElementById('step1Modal');
+var closeStep1Help = document.getElementsByClassName("closeStep1Help")[0];
+closeStep1Help.onclick = function() {
+    step1Modal.style.display = "none";
+}
+
+function toStep2() {
+	$("#19step1").hide();
+	$("#20step2").show();
+}
+
+function toStep3() {
+	document.getElementById("s2Heading").innerHTML = "<h1>Step 3: Sus Out The Damage</h1>";
+	document.getElementById("cont").onclick = function (){ toStep4() };
+	$("#23step3").show();
+}
+
+
+var step3Modal = document.getElementById('step3Modal');
+var closeStep3Help = document.getElementsByClassName("closeStep3Help")[0];
+closeStep3Help.onclick = function() {
+    step3Modal.style.display = "none";
 }

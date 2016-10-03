@@ -80,34 +80,29 @@ td {
 	color: white;
 	font-size: 13px;
 	padding: 1%;
-	padding-top: 0.75%;
+	padding-top: 15px;
 	top: 10%;
-	left: 27.5%;
+	left: 15%;
 	position: absolute;
-	height: 75px;
+	height: 80px;
 	background-color: orange;
 	text-align: left;
 	border-radius: 0px;
 	border: 2px solid orange;
-	width: 10%;
+	width: 150px;
 }
 
 #dmgBtn {
 	font-size: 13px;
 	top: 10%;
-	right: 27.5%;
+	right: 15%;
 	position: absolute;
 	height: 75px;
 	background-color: orange;
 	text-align: center;
 	border-radius: 0px;
 	border: 2px solid orange;
-	width: 10%;
-}
-
-#homeBtn:hover, #playBtn:hover, #signUpBtn:hover, #loginBtn:hover, #dmgBtn:hover {
-	background-color: white;
-	color: orange;
+	width: 150px;
 }
 
 #guestPlay, #guestSignUp, #guestLogin {
@@ -140,8 +135,9 @@ td {
 	border-radius: 0px;
 }
 
-#skipButton:hover, #backTut:hover, #nextTut:hover, #helperButton:hover, #guestPlay:hover, #guestSignUp:hover, #guestLogin:hover {
-	background-color: #FFB070;
+#skipButton:hover, #backTut:hover, #nextTut:hover, #helperButton:hover, #guestPlay:hover, #guestSignUp:hover, #guestLogin:hover, #startGame:hover, #homeBtn:hover, #playBtn:hover, #signUpBtn:hover, #loginBtn:hover, #dmgBtn:hover, #submitBtn:hover, #cont:hover {
+	color: orange;
+	background-color: white;
 	border: 2px solid #B52EFF;
 }
 
@@ -232,8 +228,9 @@ td {
 	position: relative;
 }
 
-#helpExit, #signUpExit, #loginExit, #dmgExit {
+#helpExit, #signUpExit, #loginExit, #dmgExit, #step1Exit, #step3Exit {
 	position: fixed;
+	z-index: 1;
 }
 
 .closeSignUp, .closeLogin, .closeDmg {
@@ -244,11 +241,19 @@ td {
 	color: white;
 }
 
-.closeSignUp:hover, .closeLogin:hover, .closeDmg:hover {
+.closeSignUp:hover, .closeLogin:hover, .closeDmg:hover, .closeStep1Help:hover, .closeStep3Help:hover {
 	color: orange;
 }
+ 
+.closeStep1Help, .closeStep3Help {
+	position: absolute;
+    top: 100px;
+    right: 27.5%;
+    font-size: 40px;
+	color: white;
+}
 
-#signUpModal, #loginModal, #dmgModal {
+#signUpModal, #loginModal, #dmgModal, #step1Modal, #step3Modal {
 	padding-top: 5%;
 }
 
@@ -287,7 +292,7 @@ td {
 	display: block;
 	background-color: orange;
 	width: 51%;
-	padding: 1.5em;
+	padding: 0.25em;
 	text-align: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 0px;
@@ -309,6 +314,7 @@ td {
 #sm1, #sm2, #sm3, #sm4, #sm5, #sm6 {
 	margin: 20px;
 	padding: 5px;
+	color: black;
 }
 
 .member:hover {
@@ -317,8 +323,87 @@ td {
 
 .game-heading {
 	color: white;
-	padding: 1.5em;
+	padding: 1em;
 	text-align: center;
     text-transform: uppercase;
     letter-spacing: 20px;
+}
+
+#startGame {
+	color: white;
+	margin: auto;
+	margin-top: 50px;
+	display: block;
+	background-color: orange;
+	width: 20%;
+	padding: 2em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	border: 2px solid orange;
+}
+
+#selection {
+	width: 70%;
+	height: 275px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.celeb-card {
+	float: left;
+	margin: auto;
+	display: block;
+	background-color: white;
+	height: 100px;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	margin: 9.80px;
+	padding: 5px;
+}
+
+
+.celeb-card:hover {
+	border: 2px solid #B52EFF;
+}
+
+#submitBtn, #cont {
+	font-size: 13px;
+	bottom: 10%;
+	right: 12.5%;
+	position: absolute;
+	height: 75px;
+	width: 150px;
+	color: white;
+	margin: auto;
+	margin-top: 50px;
+	display: block;
+	background-color: orange;
+	padding: 2em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	border: 2px solid orange;
+}
+
+#currDmgReport {
+	color: white;
+	margin: auto;
+	display: block;
+	background-color: orange;
+	width: 30%;
+	margin-top: 1.5%;
+	padding: 2em;
+	padding-top: 1em;
+	padding-left: 4em;	
+	padding-right: 4em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	border: 2px solid orange;
+}
+
+#currDmgReport p {
+	text-align: left;
 }
