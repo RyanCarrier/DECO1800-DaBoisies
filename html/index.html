@@ -34,7 +34,7 @@
 	
 	<span id="helperButton" class="container-fluid btn btn-success center-block"onclick="openHelp()">Help</span>
 
-	<div class="logo center-block"></div>
+	<div class="logo container-fluid center-block"></div>
 	<!--
 	<div id="1front">
 		<div class="center-block">
@@ -180,6 +180,7 @@
 						<p>Username: </p>
 						<p>Password: </p>
 						<p>Confirm Password: </p>
+						<!-- OK BUTTON -->
 					</div>
 				  </div>
 				</div>				
@@ -198,6 +199,7 @@
 						<!-- Form to Login -->
 						<p>Username: </p>
 						<p>Password: </p>
+						<!-- OK BUTTON -->
 					</div>
 				  </div>
 				</div>
@@ -206,16 +208,13 @@
 		</div>
 	</div>
 	
-	<div id="16veryStart">
-		<div class="game-heading">
-			<h1>Your Squad</h1>
-		</div>
+	<div id="gameIndicators">
 		<div id="round-indicator">
 			<p>Round 1 of 5</p>
 			<p>Year 1</p>
 		</div>
 		<div id="dmgReport">
-			<button  id="dmgBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Last Damage Report</button>			
+			<button id="dmgBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Last Damage Report</button>			
 			<div id="dmgModal" class="modal container-fluid center-block">
 			  <div class="modal-content">
 				<div class="modal-header">
@@ -230,28 +229,157 @@
 			  </div>
 			</div>
 		</div>
-		<div id="theSquad" class="container-fluid center-block">
-			<div id="sm1" class="member container-fluid center-block"></div>
-			<div id="sm2" class="member container-fluid center-block"></div>
-			<div id="sm3" class="member container-fluid center-block"></div>
-			<div id="sm4" class="member container-fluid center-block"></div>
-			<div id="sm5" class="member container-fluid center-block"></div>
-			<div id="sm6" class="member container-fluid center-block"></div>
+	</div>
+	
+	<div id="16veryStart">
+		<div class="game-heading">
+			<h1>Your Squad</h1>
 		</div>
+		<div id="theSquad" class="container-fluid center-block">
+			<div id="sm1" class="member container-fluid center-block">sm1</div>
+			<div id="sm2" class="member container-fluid center-block">sm2</div>
+			<div id="sm3" class="member container-fluid center-block">sm3</div>
+			<div id="sm4" class="member container-fluid center-block">sm4</div>
+			<div id="sm5" class="member container-fluid center-block">sm5</div>
+			<div id="sm6" class="member container-fluid center-block">sm6</div>
+		</div>
+		<div id="startGame" class="container-fluid btn btn-success center-block" onclick="toStep1()">Start Game</div>
 		<!-- 16 guest -->
 		<!-- 17 acc -->
 	</div>
 	
-	<div id="19step1">
-		<!-- 18 instruction pop up -->
+	<div id="19step1" class="container-fluid center-block">
+		<div id="step1Modal" class="modal container-fluid center-block">
+			<div class="modal-content">
+				<div class="modal-header">
+					<a id="step1Exit" href="javascript:void(0)" class="closeStep1Help">&times;</a>
+					<h2>Step 1 Instructions</h2>
+				</div>
+				<div class="modal-body">
+					<p>CLICK celebrity cards to find out more information.<br>DRAG AND DROP celebrity cards into your squad box to add the celebrity to your squad.</p>
+					<!-- TICK BOX TO STOP SHOWING INSTRUCTIONS -->
+					<!-- OK BUTTON -->
+				</div>
+			</div>
+		</div>
+		<div id="selection" class="container-fluid center-block">
+			<div class="row">
+			  <div id="c1" class="celeb-card col-md-1">c1</div>
+			  <div id="c2" class="celeb-card col-md-1">c2</div>
+			  <div id="c3" class="celeb-card col-md-1">c3</div>
+			  <div id="c4" class="celeb-card col-md-1">c4</div>
+			  <div id="c5" class="celeb-card col-md-1">c5</div>
+			  <div id="c6" class="celeb-card col-md-1">c6</div>
+			  <div id="c7" class="celeb-card col-md-1">c7</div>
+			  <div id="c8" class="celeb-card col-md-1">c8</div>
+			  <div id="c9" class="celeb-card col-md-1">c9</div>
+			  <div id="c10" class="celeb-card col-md-1">c10</div>
+			  <div id="c11" class="celeb-card col-md-1">c11</div>
+			  <div id="c12" class="celeb-card col-md-1">c12</div>
+			  <div id="c13" class="celeb-card col-md-1">c13</div>
+			  <div id="c14" class="celeb-card col-md-1">c14</div>
+			  <div id="c15" class="celeb-card col-md-1">c15</div>
+			  <div id="c16" class="celeb-card col-md-1">c16</div>
+			  <div id="c17" class="celeb-card col-md-1">c17</div>
+			  <div id="c18" class="celeb-card col-md-1">c18</div>
+			  <div id="c19" class="celeb-card col-md-1">c19</div>
+			  <div id="c20" class="celeb-card col-md-1">c20</div>
+			  <div id="c21" class="celeb-card col-md-1">c21</div>
+			  <div id="c22" class="celeb-card col-md-1">c22</div>
+			  <div id="c23" class="celeb-card col-md-1">c23</div>
+			  <div id="c24" class="celeb-card col-md-1">c24</div>
+			  <div id="c25" class="celeb-card col-md-1">c25</div>
+			  <div id="c26" class="celeb-card col-md-1">c26</div>
+			  <div id="c27" class="celeb-card col-md-1">c27</div>
+			  <div id="c28" class="celeb-card col-md-1">c28</div>
+			  <div id="c29" class="celeb-card col-md-1">c29</div>
+			  <div id="c30" class="celeb-card col-md-1">c30</div>
+			  <div id="c31" class="celeb-card col-md-1">c31</div>
+			  <div id="c32" class="celeb-card col-md-1">c32</div>
+			  <div id="c33" class="celeb-card col-md-1">c33</div>
+			  <div id="c34" class="celeb-card col-md-1">c34</div>
+			  <div id="c35" class="celeb-card col-md-1">c35</div>
+			  <div id="c36" class="celeb-card col-md-1">c36</div>
+			  <div id="c37" class="celeb-card col-md-1">c37</div>
+			  <div id="c38" class="celeb-card col-md-1">c38</div>
+			  <div id="c39" class="celeb-card col-md-1">c39</div>
+			  <div id="c40" class="celeb-card col-md-1">c40</div>
+			  <div id="c41" class="celeb-card col-md-1">c41</div>
+			  <div id="c42" class="celeb-card col-md-1">c42</div>
+			  <div id="c43" class="celeb-card col-md-1">c43</div>
+			  <div id="c44" class="celeb-card col-md-1">c44</div>
+			  <div id="c45" class="celeb-card col-md-1">c45</div>
+			  <div id="c46" class="celeb-card col-md-1">c46</div>
+			  <div id="c47" class="celeb-card col-md-1">c47</div>
+			  <div id="c48" class="celeb-card col-md-1">c48</div>
+			  <div id="c49" class="celeb-card col-md-1">c49</div>
+			  <div id="c50" class="celeb-card col-md-1">c50</div>
+			  <div id="c51" class="celeb-card col-md-1">c51</div>
+			  <div id="c52" class="celeb-card col-md-1">c52</div>
+			  <div id="c53" class="celeb-card col-md-1">c53</div>
+			  <div id="c54" class="celeb-card col-md-1">c54</div>
+			  <div id="c55" class="celeb-card col-md-1">c55</div>
+			  <div id="c56" class="celeb-card col-md-1">c56</div>
+			  <div id="c57" class="celeb-card col-md-1">c57</div>
+			  <div id="c58" class="celeb-card col-md-1">c58</div>
+			  <div id="c59" class="celeb-card col-md-1">c59</div>
+			  <div id="c60" class="celeb-card col-md-1">c60</div>		  
+			</div>
+		</div>
+		
+		<div id="s1Heading" class="game-heading">
+			<h1>Step 1: Gatho The Squad</h1>
+		</div>
+		<div id="theSquad" class="container-fluid center-block">
+			<div id="sm1" class="member container-fluid center-block">sm1</div>
+			<div id="sm2" class="member container-fluid center-block">sm2</div>
+			<div id="sm3" class="member container-fluid center-block">sm3</div>
+			<div id="sm4" class="member container-fluid center-block">sm4</div>
+			<div id="sm5" class="member container-fluid center-block">sm5</div>
+			<div id="sm6" class="member container-fluid center-block">sm6</div>
+		</div>
+		<div id="submitBtn" class="container-fluid btn btn-success center-block" onclick="toStep2()">Submit Squad</div>
 	</div>
 	
 	<div id="20step2">
 		<!-- 21 animation -->
+		<div id="s2Heading" class="game-heading">
+			<h1>Step 2: Muzz It Out</h1>
+		</div>
+		<div id="theSquad" class="container-fluid center-block">
+			<div id="sm1" class="member container-fluid center-block">sm1</div>
+			<div id="sm2" class="member container-fluid center-block">sm2</div>
+			<div id="sm3" class="member container-fluid center-block">sm3</div>
+			<div id="sm4" class="member container-fluid center-block">sm4</div>
+			<div id="sm5" class="member container-fluid center-block">sm5</div>
+			<div id="sm6" class="member container-fluid center-block">sm6</div>
+		</div>
+		<div id="cont" class="container-fluid btn btn-success center-block" onclick="toStep3()">Continue</div>
 	</div>
 	
 	<div id="23step3">
 		<!-- 22 instruction pop up -->
+		<div id="step3Modal" class="modal container-fluid center-block">
+			<div class="modal-content">
+				<div class="modal-header">
+					<a id="step3Exit" href="javascript:void(0)" class="closeStep3Help">&times;</a>
+					<h2>Step 3 Instructions</h2>
+				</div>
+				<div class="modal-body">
+					<p>CLICK celebrity cards to find out what the celebrity was doing this year.</p>
+					<!-- TICK BOX TO STOP SHOWING INSTRUCTIONS -->
+					<!-- OK BUTTON -->
+				</div>
+			</div>
+		</div>
+		
+		<div id="currDmgReport" class="container-fluid center-block">
+			<h2>Damage Report</h2>
+			<p>Year: </p>
+			<p>Part Score: </p>
+			<p>Grade: </p>
+		</div>
+		<!-- 21 animation -->
 	</div>
 	
 	<div id="24step4">
