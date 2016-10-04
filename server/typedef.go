@@ -29,6 +29,7 @@ type Record struct {
 
 //List is the list within the list for json parseing
 type List struct {
+	Title    string     `json:"title"`
 	ListItem []ListItem `json:"listItem,omitempty"`
 }
 
@@ -40,6 +41,20 @@ type ListItem struct {
 //People is the json struct containing the people id
 type People struct {
 	ID string `json:"id,omitempty"`
+}
+
+//PeopleIDs returns a list of the people id's in the TopResponse
+func (tr TopResponse) PeopleIDs() []int {
+	final := []int{}
+	for _, list := range tr.Response.Zone[0].Records.List {
+		for _, listItem := range list.ListItem {
+			for _, people := range listItem.People {
+				id, _ := strconv.Atoi(people.ID)
+				final = append(final, id)
+			}
+		}
+	}
+	return final
 }
 
 //Clean converts the TopResponse to a CleanResponse

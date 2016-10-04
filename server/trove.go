@@ -63,7 +63,7 @@ func getList(attempt int) ([]byte, error) {
 	if attempt > maxAttemptsList {
 		return []byte{}, errors.New("Max list get attempts reached")
 	}
-	listURL := troveURLBuilder("list", "top") + "&include=listItems"
+	listURL := troveURLBuilder("list", "top") + "&include=listItems&n=1"
 	response, err := http.Get(listURL)
 	if err != nil {
 		log.Error("error getting trove list, trying again", err)
