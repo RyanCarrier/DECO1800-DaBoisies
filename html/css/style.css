@@ -135,7 +135,7 @@ td {
 	border-radius: 0px;
 }
 
-#skipButton:hover, #backTut:hover, #nextTut:hover, #helperButton:hover, #guestPlay:hover, #guestSignUp:hover, #guestLogin:hover, #startGame:hover, #homeBtn:hover, #playBtn:hover, #signUpBtn:hover, #loginBtn:hover, #dmgBtn:hover, #submitBtn:hover, #cont:hover {
+#skipButton:hover, #backTut:hover, #nextTut:hover, #helperButton:hover, #guestPlay:hover, #guestSignUp:hover, #guestLogin:hover, #startGame:hover, #homeBtn:hover, #playBtn:hover, #signUpBtn:hover, #loginBtn:hover, #dmgBtn:hover, #submitBtn:hover, #cont:hover, #modSquadBtn:hover, #contSquadBtn:hover {
 	color: orange;
 	background-color: white;
 	border: 2px solid #B52EFF;
@@ -291,7 +291,7 @@ td {
 	margin: auto;
 	display: block;
 	background-color: orange;
-	width: 51%;
+	width: 855px;
 	padding: 0.25em;
 	text-align: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -316,6 +316,14 @@ td {
 	padding: 5px;
 	color: black;
 }
+/* Influence Indicator 
+#sm1, #sm4, #sm6 {
+	border: 5px solid #35FC00;
+}
+
+#sm2, #sm3, #sm5 {
+	border: 5px solid #FF0000;
+} */
 
 .member:hover {
 	border: 2px solid #B52EFF;
@@ -323,10 +331,10 @@ td {
 
 .game-heading {
 	color: white;
-	padding: 1em;
+	padding: 0.5em;
 	text-align: center;
     text-transform: uppercase;
-    letter-spacing: 20px;
+    letter-spacing: 10px;
 }
 
 #startGame {
@@ -344,7 +352,7 @@ td {
 }
 
 #selection {
-	width: 70%;
+	width: 75%;
 	height: 275px;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -356,6 +364,7 @@ td {
 	display: block;
 	background-color: white;
 	height: 100px;
+	width: 6.5%;
 	text-align: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 0px;
@@ -406,4 +415,29 @@ td {
 
 #currDmgReport p {
 	text-align: left;
+}
+
+#modSquadBtn, #contSquadBtn {
+	float: left;
+	position: absolute;
+	padding: 1.5em;
+	height: 85px;
+	color: white;
+	margin: auto;
+	margin-top: 50px;
+	display: block;
+	background-color: orange;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	border: 2px solid orange;
+	bottom: 20%;
+}
+
+#modSquadBtn {
+	left: 25%;
+}
+
+#contSquadBtn {
+	right: 25%;
 }

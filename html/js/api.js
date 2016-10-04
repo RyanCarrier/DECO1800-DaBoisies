@@ -125,13 +125,14 @@ function getForbes() {
                 while (isLoaded === false) {
                     isLoaded = true;
                     /*
-                                                for (i = 0, len = nameList.length; i < len; i++) {
-                                                    //console.log(loaded);
-                                                    if (loaded[i] === false) {
-                                                        isLoaded = false;
-                                                        break;
-                                                    }
-                        }*/
+                    for (i = 0, len = nameList.length; i < len; i++) {
+                        //console.log(loaded);
+                        if (loaded[i] === false) {
+                            isLoaded = false;
+                            break;
+                        }
+                    }
+					*/
                 }
                 stopLoading();
             }
@@ -173,6 +174,7 @@ $(window).load(function() {
 	$("#19step1").hide();
 	$("#20step2").hide();
 	$("#23step3").hide();
+	$("#24step4").hide();
 	
 }());
 
@@ -373,6 +375,12 @@ closeDmg.onclick = function() {
     dmgModal.style.display = "none";
 }
 
+var round = 1;
+var year = 2000;
+
+document.getElementById("round").innerHTML = "Round " + round + " of 5";
+document.getElementById("year").innerHTML = "Year " + year;
+
 function toStep1() {
 	$("#16veryStart").hide();
 	$("#19step1").show();
@@ -385,6 +393,9 @@ closeStep1Help.onclick = function() {
 }
 
 function toStep2() {
+	document.getElementById("s2Heading").innerHTML = "<h1>Step 2: Muzz It Out</h1>";
+	document.getElementById("cont").onclick = function (){ toStep3() };
+	$("#cont").show();
 	$("#19step1").hide();
 	$("#20step2").show();
 }
@@ -400,4 +411,48 @@ var step3Modal = document.getElementById('step3Modal');
 var closeStep3Help = document.getElementsByClassName("closeStep3Help")[0];
 closeStep3Help.onclick = function() {
     step3Modal.style.display = "none";
+}
+
+function toStep4() {
+	document.getElementById("s2Heading").innerHTML = "<h1>Step 4: Mod The Squad</h1>";
+	document.getElementById("cont").onclick = function (){ toStep2() };
+	$("#cont").hide();
+	$("#23step3").hide();
+	$("#24step4").show();
+	round += 1;
+	year += 1;
+	document.getElementById("startGame").innerHTML = "Start Next Round";
+	if (round == 6) {
+		$("#modSquadBtn").hide();
+		document.getElementById("contSquadBtn").style.width = "20%";
+		document.getElementById("contSquadBtn").style.right = "40%";
+		document.getElementById("contSquadBtn").innerHTML = "Finish Game";
+		document.getElementById("contSquadBtn").onclick = function (){ finishGame() };
+	}
+}
+
+function backToStep1() {
+	toStep1();
+	$("#24step4").hide();
+	document.getElementById("round").innerHTML = "Round " + round + " of 5";
+	document.getElementById("year").innerHTML = "Year " + year;
+}
+
+function backToStep2() {
+	$("#20step2").hide();
+	$("#24step4").hide();
+	toStep2();
+	document.getElementById("round").innerHTML = "Round " + round + " of 5";
+	document.getElementById("year").innerHTML = "Year " + year;
+}
+
+function finishGame() {
+	$("#20step2").hide();
+	$("#24step4").hide();
+	goHome1();
+	round = 1;
+	year = 2000;
+	document.getElementById("round").innerHTML = "Round " + round + " of 5";
+	document.getElementById("year").innerHTML = "Year " + year;
+	$("#gameIndicators").hide();
 }

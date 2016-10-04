@@ -35,6 +35,7 @@
 	<span id="helperButton" class="container-fluid btn btn-success center-block"onclick="openHelp()">Help</span>
 
 	<div class="logo container-fluid center-block"></div>
+	
 	<!--
 	<div id="1front">
 		<div class="center-block">
@@ -210,8 +211,8 @@
 	
 	<div id="gameIndicators">
 		<div id="round-indicator">
-			<p>Round 1 of 5</p>
-			<p>Year 1</p>
+			<p id="round">Round 1 of 5</p>
+			<p id="year">Year 1</p>
 		</div>
 		<div id="dmgReport">
 			<button id="dmgBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Last Damage Report</button>			
@@ -222,9 +223,9 @@
 				  <h2>Damage Report</h2>
 				</div>
 				<div class="modal-body">
-					<p>Year:</p>
-					<p>Party Score:</p>
-					<p>Grade</p>
+					<p>Year: </p>
+					<p>Party Score: </p>
+					<p>Grade: </p>
 				</div>
 			  </div>
 			</div>
@@ -378,20 +379,19 @@
 			<p>Year: </p>
 			<p>Part Score: </p>
 			<p>Grade: </p>
+			<p>Subtotal Score: </p>
+			<p>Average Grade: </p>
 		</div>
 		<!-- 21 animation -->
 	</div>
 	
-	<div id="24step4">
-	</div>
-	
-	<div id="25step4cont">
-		<!-- similar setup to 19step1 -->
-	</div>
-	
-	<div id="26nextStart">
-		<!-- similar setup to 16veryStart -->
-		<!-- 27 query pop up -->
+	<div id="24step4" class="container-fluid center-block">
+		<div id="modSquadBtn" class="container-fluid center-block" onclick="backToStep1()">
+			<p>Modify Your Squad<br>Before The Next Round</p>
+		</div>
+		<div id="contSquadBtn" class="container-fluid center-block" onclick="backToStep2()">
+			<p>Continue With Current<br>Squad For The Next Round</p>
+		</div>
 	</div>
 	
 	<div id="28lastDmgRep">
