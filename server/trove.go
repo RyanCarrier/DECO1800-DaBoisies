@@ -1,6 +1,7 @@
 package server
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io/ioutil"
@@ -39,24 +40,49 @@ func troveURLBuilder(zone, search string) string {
 
 func handleList(w http.ResponseWriter, r *http.Request) {
 	logReq(r, r.URL.Path)
-	handleListAttempt(w, r, 0)
+	tr, err := getListStruct(0)
+	if err != nil {
+		body, err := ioutil.ReadFile("testlist.json")
+		if err != nil {
+			log.Error("can't read from file", err)
+			w.Write([]byte("Couldn't get list soz about it nerd"))
+			return
+		}
+		err = json.Unmarshal(body, &tr)
+		if err != nil {
+			log.Error("can't unmarshal from file", err)
+			w.Write([]byte("Couldn't get list soz about it nerd2.0"))
+			return
+		}
+	}
+	//regardless tr is full now yum yum
+	cpr := CleanPeopleReturn{People: getNamesI(tr.PeopleIDs())}
+	body, err := json.Marshal(cpr)
+	if err != nil {
+		log.Error("UGHHHHHHH", err)
+		w.Write([]byte("Couldn't get list soz about it nerd"))
+		return
+	}
+	w.Write(body)
 }
 
-func handleListAttempt(w http.ResponseWriter, r *http.Request, attempt int) {
-
-}
-
-func getListStruct(attempt int) error {
+func getListStruct(attempt int) (TopResponse, error) {
+	var tr TopResponse
 	if attempt > maxAttemptsList {
-		return errors.New("Max list get attempts reached")
+		return tr, errors.New("Max list get attempts reached")
 	}
 	body, err := getList(attempt)
+	if err != nil {
+		log.Error(err)
+		return getListStruct(attempt + 1)
+	}
+	err = json.Unmarshal(body, &tr)
 	fmt.Println(string(body))
 	if err != nil {
 		log.Error(err)
-		getListStruct(attempt + 1)
+		return getListStruct(attempt + 1)
 	}
-	return nil
+	return tr, nil
 }
 
 func getList(attempt int) ([]byte, error) {
