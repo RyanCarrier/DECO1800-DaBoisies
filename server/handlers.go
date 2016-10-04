@@ -33,3 +33,11 @@ func (f *fileHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	logReq(r, upath)
 	http.ServeFile(w, r, "html"+upath)
 }
+
+func handleHelp(w http.ResponseWriter, r *http.Request) {
+	final := ""
+	for _, route := range GetRoutes() {
+		final += "<a href=\"" + route.Path + "\">" + route.Path + "</a><br>"
+	}
+	w.Write([]byte(final))
+}
