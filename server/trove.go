@@ -3,7 +3,6 @@ package server
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strconv"
@@ -67,6 +66,9 @@ func handleList(w http.ResponseWriter, r *http.Request) {
 }
 
 func getListStruct(attempt int) (TopResponse, error) {
+	if attempt > 0 {
+		log.Warn("attempting to get list again, attempt: ", attempt)
+	}
 	var tr TopResponse
 	if attempt > maxAttemptsList {
 		return tr, errors.New("Max list get attempts reached")
@@ -77,7 +79,7 @@ func getListStruct(attempt int) (TopResponse, error) {
 		return getListStruct(attempt + 1)
 	}
 	err = json.Unmarshal(body, &tr)
-	fmt.Println(string(body))
+	//fmt.Println(string(body))
 	if err != nil {
 		log.Error(err)
 		return getListStruct(attempt + 1)
@@ -100,5 +102,6 @@ func getList(attempt int) ([]byte, error) {
 		log.Error(err)
 		return getList(attempt + 1)
 	}
+	log.Info("successful? get from trove list")
 	return ioutil.ReadAll(response.Body)
 }

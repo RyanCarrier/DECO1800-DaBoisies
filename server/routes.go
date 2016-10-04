@@ -17,5 +17,6 @@ func GetRoutes() Routes {
 		Route{"/log", handleLog},
 		Route{"/api/people/", handleNames},
 		Route{"/api/getlist/", handleList},
+		Route{"/api/", handleHelp},
 	}
 }
