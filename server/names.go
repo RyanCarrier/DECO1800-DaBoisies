@@ -56,6 +56,23 @@ func getNames(IDs string) string {
 	return finalCollective[:len(finalCollective)-1]
 }
 
+func getNamesI(IDs []int) []string {
+	final := make([]string, len(IDs))
+	wg := &sync.WaitGroup{}
+	log.Info("wait group adding ", len(IDs))
+	wg.Add(len(IDs))
+	for i, id := range IDs {
+		go getMultiNameI(wg, &final[i], id)
+	}
+	wg.Wait()
+	return final
+}
+
+func getMultiNameI(wg *sync.WaitGroup, s *string, id int) {
+	*s = getName(id, 0, 0)
+	wg.Done()
+}
+
 func getMultiName(wg *sync.WaitGroup, s *string, id string) {
 	eyedee, err := strconv.Atoi(id)
 	if err == nil {

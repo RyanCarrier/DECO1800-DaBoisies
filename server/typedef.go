@@ -102,3 +102,8 @@ type CleanReturn struct {
 	Year  int    `json:"year,omitempty"`
 	Total int    `json:"total,omitempty"`
 }
+
+//CleanPeopleReturn is the json struct used to return the people from forbes list
+type CleanPeopleReturn struct {
+	People []string `json:"people,omitempty"`
+}
