@@ -1,8 +1,9 @@
 //run when window is loaded
+var zones = ["map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"];
+var names = [];
 $(window).load(function() {
     //$(help).append("If nothing is coming up, check if it is 'waiting for trove' in the bottom right corner. If it is refresh the page.");
     //$(help).append("Also open up the dev console for more details.<br><br>");
-    getForbes();
 	$("#helpExit").hide();
 	$("#backTut").hide();
 	$("#tutBox2").hide();
@@ -214,6 +215,7 @@ function playGame() {
 	$("#backTut").hide();
 	$("#16veryStart").show();
 	$("#gameIndicators").show();
+	console.log("starting to create cards")
 	createCards();
 }
 
@@ -326,13 +328,12 @@ function finishGame() {
 }
 
 function createCards() {
-	var loop = 0;
-	for (var z in zones) {
-		x = loop;
-		while (x < 60){
-			x + 1;
-			console.log(x);
-			$("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\">");	
-		};
+	x = 0;
+	while (x < 50){
+		x = x + 1;
+		console.log(x);
+		$("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\">" 
+		+ "c" + x + "</div>");		
 	}
+	
 }
