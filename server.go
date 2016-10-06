@@ -35,7 +35,8 @@ func init() {
 
 func main() {
 	initHelp()
-	log.Error(http.ListenAndServe(":"+strconv.Itoa(port), server.SetupHandlers()))
+	mux := server.SetupHandlers()
+	log.Error(http.ListenAndServe(":"+strconv.Itoa(port), mux))
 }
 
 func initHelp() {
