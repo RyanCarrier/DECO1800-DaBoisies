@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/RyanCarrier/DECO1800-DaBoisies/server"
 	log "github.com/Sirupsen/logrus"
@@ -31,12 +32,18 @@ func init() {
 			fmt.Println("Logging to", filename)
 		}
 	}
+	go load()
 }
 
 func main() {
 	initHelp()
 	mux := server.SetupHandlers()
 	log.Error(http.ListenAndServe(":"+strconv.Itoa(port), mux))
+}
+
+func load() {
+	time.Sleep(time.Second * 10)
+	http.Get("http://localhost/api/getlist/")
 }
 
 func initHelp() {
