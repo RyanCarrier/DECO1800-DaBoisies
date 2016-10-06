@@ -1,6 +1,9 @@
 package server
 
-import "strconv"
+import (
+	"strconv"
+	"strings"
+)
 
 //TopResponse is the top level response returned from trove
 type TopResponse struct {
@@ -60,7 +63,7 @@ func (tr TopResponse) PeopleIDs() []int {
 //Clean converts the TopResponse to a CleanResponse
 func (tr TopResponse) Clean() CleanResponse {
 	cr := CleanResponse{
-		Query: tr.Response.Query,
+		Query: strings.TrimSpace(strings.Split(tr.Response.Query, "date:")[0]),
 		Zones: make([]CleanZone, len(tr.Response.Zone)),
 	}
 	for i, z := range tr.Response.Zone {
@@ -72,15 +75,15 @@ func (tr TopResponse) Clean() CleanResponse {
 
 //CleanResponse is a clean version of the response from trove
 type CleanResponse struct {
-	Query string      `json:"query,omitempty"`
+	Query string      `json:"query"`
 	Year  int         `json:"year,omitempty"`
-	Zones []CleanZone `json:"zones,omitempty"`
+	Zones []CleanZone `json:"zones"`
 }
 
 //CleanZone is a clean version of the zone response from trove
 type CleanZone struct {
-	Name  string `json:"name,omitempty"`
-	Total int    `json:"total,omitempty"`
+	Name  string `json:"name"`
+	Total int    `json:"total"`
 }
 
 //Return converts CleanResponse into a barebones returnable json struct CleanReturn
@@ -98,9 +101,9 @@ func (cr CleanResponse) Return() CleanReturn {
 
 //CleanReturn is the json struct used to return the minimum amount to the client
 type CleanReturn struct {
-	Query string `json:"query,omitempty"`
+	Query string `json:"query"`
 	Year  int    `json:"year,omitempty"`
-	Total int    `json:"total,omitempty"`
+	Total int    `json:"total"`
 }
 
 //CleanPeopleReturn is the json struct used to return the people from forbes list

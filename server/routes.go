@@ -15,7 +15,9 @@ type Route struct {
 func GetRoutes() Routes {
 	return Routes{
 		Route{"/log", handleLog},
-		Route{"/api/people/", handleNames},
+		Route{"/api/weight/{search}/", handleWeight},
+		Route{"/api/weight/{search}/year/{year}", handleWeightYear},
+		Route{"/api/people/{peopleid}", handleNames},
 		Route{"/api/getlist/", handleList},
 		Route{"/api/", handleHelp},
 	}
