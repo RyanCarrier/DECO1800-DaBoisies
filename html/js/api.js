@@ -398,14 +398,21 @@ function toStep2() {
 	$("#cont").show();
 	$("#19step1").hide();
 	$("#20step2").show();
+	$("#step2Modal").show();
+}
+
+var step2Modal = document.getElementById('step2Modal');
+var closeStep2Help = document.getElementsByClassName("closeStep2Help")[0];
+closeStep2Help.onclick = function() {
+    step2Modal.style.display = "none";
 }
 
 function toStep3() {
 	document.getElementById("s2Heading").innerHTML = "<h1>Step 3: Sus Out The Damage</h1>";
 	document.getElementById("cont").onclick = function (){ toStep4() };
 	$("#23step3").show();
+	$("#step2Modal").hide();
 }
-
 
 var step3Modal = document.getElementById('step3Modal');
 var closeStep3Help = document.getElementsByClassName("closeStep3Help")[0];
@@ -419,6 +426,7 @@ function toStep4() {
 	$("#cont").hide();
 	$("#23step3").hide();
 	$("#24step4").show();
+	$("#step4Modal").show();
 	round += 1;
 	year += 1;
 	document.getElementById("startGame").innerHTML = "Start Next Round";
@@ -431,14 +439,22 @@ function toStep4() {
 	}
 }
 
+var step4Modal = document.getElementById('step4Modal');
+var closeStep4Help = document.getElementsByClassName("closeStep4Help")[0];
+closeStep4Help.onclick = function() {
+    step4Modal.style.display = "none";
+}
+
 function backToStep1() {
-	toStep1();
+	$("#step4Modal").hide();
 	$("#24step4").hide();
+	toStep1();
 	document.getElementById("round").innerHTML = "Round " + round + " of 5";
 	document.getElementById("year").innerHTML = "Year " + year;
 }
 
 function backToStep2() {
+	$("#step4Modal").hide();
 	$("#20step2").hide();
 	$("#24step4").hide();
 	toStep2();

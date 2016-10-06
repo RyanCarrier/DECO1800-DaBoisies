@@ -228,7 +228,7 @@ td {
 	position: relative;
 }
 
-#helpExit, #signUpExit, #loginExit, #dmgExit, #step1Exit, #step3Exit {
+#helpExit, #signUpExit, #loginExit, #dmgExit, #step1Exit, #step2Exit, #step3Exit, #step4Exit {
 	position: fixed;
 	z-index: 1;
 }
@@ -241,11 +241,11 @@ td {
 	color: white;
 }
 
-.closeSignUp:hover, .closeLogin:hover, .closeDmg:hover, .closeStep1Help:hover, .closeStep3Help:hover {
+.closeSignUp:hover, .closeLogin:hover, .closeDmg:hover, .closeStep1Help:hover, .closeStep2Help:hover, .closeStep3Help:hover, .closeStep4Help:hover {
 	color: orange;
 }
  
-.closeStep1Help, .closeStep3Help {
+.closeStep1Help, .closeStep2Help, .closeStep3Help, .closeStep4Help {
 	position: absolute;
     top: 100px;
     right: 27.5%;
@@ -253,7 +253,7 @@ td {
 	color: white;
 }
 
-#signUpModal, #loginModal, #dmgModal, #step1Modal, #step3Modal {
+#signUpModal, #loginModal, #dmgModal, #step1Modal, #step2Modal, #step3Modal, #step4Modal {
 	padding-top: 5%;
 }
 
