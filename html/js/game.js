@@ -215,7 +215,6 @@ function playGame() {
 	$("#backTut").hide();
 	$("#16veryStart").show();
 	$("#gameIndicators").show();
-	console.log("starting to create cards")
 	createCards();
 }
 
@@ -331,7 +330,6 @@ function createCards() {
 	x = 0;
 	while (x < 50){
 		x = x + 1;
-		console.log(x);
 		$("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\">" 
 		+ "c" + x + "</div>");		
 	}
