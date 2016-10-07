@@ -55,7 +55,6 @@ jQuery(function($) {
 	});		
 });
 
-
 function openHelp() {
     document.getElementById("help").style.width = "100%";
 	$("#helpExit").show(1000);
@@ -359,5 +358,19 @@ function createCards() {
 		$("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\">" 
 		+ "c" + x + "</div>");		
 	}
-	
+}
+
+function passwordChecker(){
+    var pass1 = document.getElementById("pass1").value;
+    var pass2 = document.getElementById("pass2").value;
+	var ok = true;
+    if (pass1 != pass2) {
+        document.getElementById("pass1").style.borderColor = "#E34234";
+        document.getElementById("pass2").style.borderColor = "#E34234";
+		ok = false;
+    }
+    else {
+        alert("Passwords Match!!!");
+    }
+	return ok;
 }

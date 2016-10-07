@@ -161,11 +161,14 @@
 						<h2>Sign Up</h2>
 					</div>
 					<div class="modal-body">
-						<!-- Form to Sign Up -->
-						<p>Username: </p>
-						<p>Password: </p>
-						<p>Confirm Password: </p>
-						<!-- OK BUTTON -->
+						<form onsubmit="return passwordChecker()" method="post">	
+							<!-- Form to Sign Up -->
+							<p>Username: <input type='text' name='username'> </p>
+							<p>Password: <input id='pass1' type='text' name='password'> </p>
+							<p>Confirm Password: <input id='pass2' type='text' name='re-password'> </p>
+							<p><input type='submit' value='Submit'> </p>
+							<!-- OK BUTTON -->
+						</form>
 					</div>
 				  </div>
 				</div>				
