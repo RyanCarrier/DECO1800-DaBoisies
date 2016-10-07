@@ -1,6 +1,8 @@
 //run when window is loaded
+
 var zones = ["map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"];
 var names = [];
+
 $(window).load(function() {
     //$(help).append("If nothing is coming up, check if it is 'waiting for trove' in the bottom right corner. If it is refresh the page.");
     //$(help).append("Also open up the dev console for more details.<br><br>");
@@ -28,7 +30,31 @@ $(window).load(function() {
 	$("#23step3").hide();
 	$("#24step4").hide();
 	
-}());
+});
+
+jQuery(function($) {
+	var open = false;
+	$('#footerSlideButton').click(function () {
+		if(open === false) {
+			if(Modernizr.csstransitions) {
+				$('#footerSlideContent').addClass('open');
+			} else {
+				$('#footerSlideContent').animate({ height: '300px' });
+			}
+			$(this).css('backgroundPosition', 'bottom left');
+			open = true;
+		} else {
+			if(Modernizr.csstransitions) {
+				$('#footerSlideContent').removeClass('open');
+			} else {
+				$('#footerSlideContent').animate({ height: '0px' });
+			}
+			$(this).css('backgroundPosition', 'top left');
+			open = false;
+		}
+	});		
+});
+
 
 function openHelp() {
     document.getElementById("help").style.width = "100%";
