@@ -196,7 +196,6 @@ function goHome1() {
 	tutState = 0;
 }
 
-
 function goHome2() {
 	$("#tutBox").hide();
 	$("#skipButton").hide();
@@ -210,6 +209,18 @@ function goHome2() {
 	document.getElementById("backTut").innerHTML = "<p>Back To<br>Tutorial<p>";
 	document.getElementById("backTut").onclick = function (){ next() };
 	tutState = 7;
+}
+
+function goHome3() {
+	$("#16veryStart").hide();
+	$("#guestLeaderBoard").show();
+	$("#guestPlay").show();
+	$("#guestSignUp").show();
+	$("#guestLogin").show();
+	$("#backTut").show();
+	document.getElementById("backTut").innerHTML = "<p>Try The<br>Tutorial<p>";
+	document.getElementById("backTut").onclick = function (){ next() };
+	tutState = 0;
 }
 
 var signUpModal = document.getElementById('signUpModal');
