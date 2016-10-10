@@ -371,8 +371,9 @@ function createCards() {
 	}
 }
 
-function passwordChecker(){
-    var pass1 = document.getElementById("pass1").value;
+function formChecker(){
+    var username = document.getElementById("username").value;
+	var pass1 = document.getElementById("pass1").value;
     var pass2 = document.getElementById("pass2").value;
 	var ok = true;
     if (pass1 != pass2) {
@@ -380,7 +381,22 @@ function passwordChecker(){
         document.getElementById("pass2").style.borderColor = "#E34234";
 		ok = false;
     }
-    else {
+	if (username == ""){
+		alert("Username has not been defined.")
+		document.getElementById("username").style.borderColor = "#E34234";
+		ok = false;
+	}
+	if (pass1 == ""){
+		alert("A password has not been set.")
+		document.getElementById("pass1").style.borderColor = "#E34234";
+		ok = false;
+	}
+	if (pass2 == ""){
+		alert("Please confirm your password.")
+		document.getElementById("pass2").style.borderColor = "#E34234";
+		ok = false;
+	}
+	else {
         alert("Passwords Match!!!");
     }
 	return ok;
