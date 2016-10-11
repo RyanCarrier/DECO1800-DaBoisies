@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+const googleAPIKey = "AIzaSyDLwaqloOdBw5W9purSCN6gSoByqEuizyI"
+
 //TopResponse is the top level response returned from trove
 type TopResponse struct {
 	Response Response `json:"response,omitempty"`
