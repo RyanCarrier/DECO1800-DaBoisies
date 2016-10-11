@@ -13,28 +13,28 @@ import (
 
 type ids struct {
 	sync.Mutex
-	data []int
+	Data []int `json:"data"`
 }
 
 var iDs = newids()
 
 func newids() *ids {
 	return &ids{
-		data: []int{},
+		Data: []int{},
 	}
 }
 
 func (i *ids) get() []int {
 	i.Lock()
 	defer i.Unlock()
-	data := i.data
+	data := i.Data
 	return data
 }
 
 func (i *ids) put(data []int) {
 	i.Lock()
 	defer i.Unlock()
-	i.data = data
+	i.Data = data
 }
 
 func handleList(w http.ResponseWriter, r *http.Request) {
@@ -59,7 +59,7 @@ func handleList(w http.ResponseWriter, r *http.Request) {
 		//regardless tr is full now yum yum
 		iDs.put(tr.PeopleIDs())
 	}
-	cpr := CleanPeopleReturn{People: getNamesI(iDs.get())}
+	cpr := CleanPeopleReturn{People: getPeopleI(iDs.get())}
 	body, err := json.Marshal(cpr)
 	if err != nil {
 		log.Error("UGHHHHHHH", err)

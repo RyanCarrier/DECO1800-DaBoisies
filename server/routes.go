@@ -19,6 +19,8 @@ func GetRoutes() Routes {
 		Route{"/api/weight/{search}/year/{year}", handleWeightYear},
 		Route{"/api/people/{peopleid}", handleNames},
 		Route{"/api/getlist/", handleList},
+		Route{"/api/save/", handleSave},
+		Route{"/api/load/", handleLoad},
 		Route{"/api/", handleHelp},
 	}
 }

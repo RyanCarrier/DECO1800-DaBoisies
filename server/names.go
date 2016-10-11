@@ -21,14 +21,14 @@ const attemptMax503 = 30
 //Names is a struct to remember the names already found
 type Names struct {
 	sync.Mutex
-	data map[int]string
+	Data map[string]string `json:"data"`
 }
 
 var names = newNames()
 
 func newNames() *Names {
 	return &Names{
-		data: make(map[int]string),
+		Data: make(map[string]string),
 	}
 }
 
@@ -36,7 +36,7 @@ func newNames() *Names {
 func (n *Names) Get(i int) (string, bool) {
 	n.Lock()
 	defer n.Unlock()
-	got, ok := n.data[i]
+	got, ok := n.Data[strconv.Itoa(i)]
 	return got, ok
 }
 
@@ -44,7 +44,7 @@ func (n *Names) Get(i int) (string, bool) {
 func (n *Names) Put(i int, s string) {
 	n.Lock()
 	defer n.Unlock()
-	n.data[i] = s
+	n.Data[strconv.Itoa(i)] = s
 }
 
 func handleNames(w http.ResponseWriter, r *http.Request) {

@@ -5,8 +5,6 @@ import (
 	"strings"
 )
 
-const googleAPIKey = "AIzaSyDLwaqloOdBw5W9purSCN6gSoByqEuizyI"
-
 //TopResponse is the top level response returned from trove
 type TopResponse struct {
 	Response Response `json:"response,omitempty"`
@@ -110,5 +108,5 @@ type CleanReturn struct {
 
 //CleanPeopleReturn is the json struct used to return the people from forbes list
 type CleanPeopleReturn struct {
-	People []string `json:"people,omitempty"`
+	People []FinalPerson `json:"people,omitempty"`
 }

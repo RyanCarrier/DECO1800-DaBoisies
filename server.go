@@ -5,7 +5,6 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-	"time"
 
 	"github.com/RyanCarrier/DECO1800-DaBoisies/server"
 	log "github.com/Sirupsen/logrus"
@@ -32,7 +31,7 @@ func init() {
 			fmt.Println("Logging to", filename)
 		}
 	}
-	go load()
+	go server.DelayLoad(3)
 }
 
 func main() {
@@ -41,22 +40,8 @@ func main() {
 	log.Error(http.ListenAndServe(":"+strconv.Itoa(port), mux))
 }
 
-func load() {
-	time.Sleep(time.Second * 10)
-	http.Get("http://localhost/api/getlist/")
-}
-
 func initHelp() {
 	log.Info("Listening on http://localhost:" + strconv.Itoa(port))
-	log.Info(`To get people use the api;
-http://localhost:` + strconv.Itoa(port) + `/api/people/:peopleid
-Try using some of the id's from forbes list;
-946924
-1456345
-1163655
-1479624
-1503477
-		`)
 }
 
 func cliHelp() {
