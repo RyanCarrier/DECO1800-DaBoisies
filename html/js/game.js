@@ -196,7 +196,6 @@ function goHome1() {
 	tutState = 0;
 }
 
-
 function goHome2() {
 	$("#tutBox").hide();
 	$("#skipButton").hide();
@@ -210,6 +209,18 @@ function goHome2() {
 	document.getElementById("backTut").innerHTML = "<p>Back To<br>Tutorial<p>";
 	document.getElementById("backTut").onclick = function (){ next() };
 	tutState = 7;
+}
+
+function goHome3() {
+	$("#16veryStart").hide();
+	$("#guestLeaderBoard").show();
+	$("#guestPlay").show();
+	$("#guestSignUp").show();
+	$("#guestLogin").show();
+	$("#backTut").show();
+	document.getElementById("backTut").innerHTML = "<p>Try The<br>Tutorial<p>";
+	document.getElementById("backTut").onclick = function (){ next() };
+	tutState = 0;
 }
 
 var signUpModal = document.getElementById('signUpModal');
@@ -360,8 +371,9 @@ function createCards() {
 	}
 }
 
-function passwordChecker(){
-    var pass1 = document.getElementById("pass1").value;
+function formChecker(){
+    var username = document.getElementById("username").value;
+	var pass1 = document.getElementById("pass1").value;
     var pass2 = document.getElementById("pass2").value;
 	var ok = true;
     if (pass1 != pass2) {
@@ -369,7 +381,22 @@ function passwordChecker(){
         document.getElementById("pass2").style.borderColor = "#E34234";
 		ok = false;
     }
-    else {
+	if (username == ""){
+		alert("Username has not been defined.")
+		document.getElementById("username").style.borderColor = "#E34234";
+		ok = false;
+	}
+	if (pass1 == ""){
+		alert("A password has not been set.")
+		document.getElementById("pass1").style.borderColor = "#E34234";
+		ok = false;
+	}
+	if (pass2 == ""){
+		alert("Please confirm your password.")
+		document.getElementById("pass2").style.borderColor = "#E34234";
+		ok = false;
+	}
+	else {
         alert("Passwords Match!!!");
     }
 	return ok;

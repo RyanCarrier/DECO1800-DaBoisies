@@ -6,7 +6,6 @@
     <link rel="stylesheet" type="text/css" href="css/loadingSpinner.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> </head>
-
 <body>
     <div id="help" class="helper"> <a id="helpExit" href="javascript:void(0)" class="closebtn" onclick="closeHelp()">&times;</a>
         <div class="help-content">
@@ -161,9 +160,9 @@
 						<h2>Sign Up</h2>
 					</div>
 					<div class="modal-body">
-						<form onsubmit="return passwordChecker()" method="post">	
+						<form onsubmit="return formChecker()" method="post">	
 							<!-- Form to Sign Up -->
-							<p>Username: <input type='text' name='username'> </p>
+							<p>Username: <input id='username' type='text' name='username'> </p>
 							<p>Password: <input id='pass1' type='text' name='password'> </p>
 							<p>Confirm Password: <input id='pass2' type='text' name='re-password'> </p>
 							<p><input type='submit' value='Submit'> </p>
@@ -185,8 +184,8 @@
 					</div>
 					<div class="modal-body">
 						<!-- Form to Login -->
-						<p>Username: </p>
-						<p>Password: </p>
+						<p>Username: <input type='text' name='username'> </p>
+						<p>Password: <input id='pass1' type='text' name='password'> </p>
 						<!-- OK BUTTON -->
 					</div>
 				  </div>
@@ -220,8 +219,11 @@
 	</div>
 	
 	<div id="16veryStart">
-		<div class="game-heading">
+		<div id="game-head" class="game-heading">
 			<h1>Your Squad</h1>
+		</div>
+		<div id="backMenu" class="container-fluid btn btn-success center-block" onclick="goHome3()">
+			<p>Back to Main Menu</p>
 		</div>
 		<div id="theSquad" class="container-fluid center-block">
 			<div id="sm1" class="member container-fluid center-block">sm1</div>
@@ -250,7 +252,7 @@
 		</div>
 		<div id="selection" class="container-fluid center-block">
 			<div class="row" id="cards">
-			 	  
+				<!-- Calls the createCards() function-->
 			</div>
 			<div class="row">
             

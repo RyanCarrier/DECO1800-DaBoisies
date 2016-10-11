@@ -135,7 +135,7 @@ td {
 	border-radius: 0px;
 }
 
-#skipButton:hover, #backTut:hover, #nextTut:hover, #helperButton:hover, #guestPlay:hover, #guestSignUp:hover, #guestLogin:hover, #startGame:hover, #homeBtn:hover, #playBtn:hover, #signUpBtn:hover, #loginBtn:hover, #dmgBtn:hover, #submitBtn:hover, #cont:hover, #modSquadBtn:hover, #contSquadBtn:hover {
+#skipButton:hover, #backMenu:hover, #backTut:hover, #nextTut:hover, #helperButton:hover, #guestPlay:hover, #guestSignUp:hover, #guestLogin:hover, #startGame:hover, #homeBtn:hover, #playBtn:hover, #signUpBtn:hover, #loginBtn:hover, #dmgBtn:hover, #submitBtn:hover, #cont:hover, #modSquadBtn:hover, #contSquadBtn:hover {
 	color: orange;
 	background-color: white;
 	border: 2px solid #B52EFF;
@@ -156,13 +156,28 @@ td {
 	border-radius: 0px;
 }
 
-#backTut {
+#backTut{
 	top: 40%;
 	left: 8.75%;
 	color: white;
 	position: absolute;
 	background-color: orange;
 	width: 100px;
+	margin-top: 2.5%;
+	padding-top: 1.25em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border: 2px solid orange;
+	border-radius: 0px;
+}
+
+#backMenu{
+	top: 40%;
+	left: 8.75%;
+	color: white;
+	position: absolute;
+	background-color: orange;
+	width: 145px;
 	margin-top: 2.5%;
 	padding-top: 1.25em;
 	text-align: center;
