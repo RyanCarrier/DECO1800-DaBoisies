@@ -46,6 +46,24 @@ type People struct {
 	ID string `json:"id,omitempty"`
 }
 
+//CleanZones list of zones sortable
+type CleanZones []CleanZone
+
+//Swap swaps a and b
+func (z CleanZones) Swap(a, b int) {
+	z[a], z[b] = z[b], z[a]
+}
+
+//Less part of sort interface
+func (z CleanZones) Less(a, b int) bool {
+	return z[a].Total < z[b].Total
+}
+
+//Len is part of sort interface
+func (z CleanZones) Len() int {
+	return len(z)
+}
+
 //PeopleIDs returns a list of the people id's in the TopResponse
 func (tr TopResponse) PeopleIDs() []int {
 	final := []int{}

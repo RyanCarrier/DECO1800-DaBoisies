@@ -39,3 +39,13 @@ func fileHandler(w http.ResponseWriter, r *http.Request) {
 	logReq(r, upath)
 	http.ServeFile(w, r, htmlDir+upath)
 }
+
+func handleUpdate(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("k"))
+	go updateAll()
+}
+
+func handleForceUpdate(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("k"))
+	go forceUpdateAll()
+}

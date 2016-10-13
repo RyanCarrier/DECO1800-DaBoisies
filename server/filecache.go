@@ -16,11 +16,13 @@ const peopleFile = "peopleFile.json"
 
 //Load loads the cached stuff from file
 func Load() {
+	log.Info("Loading...")
 	loadIDS()
 	loadNames()
 	loadPeople()
 	time.Sleep(time.Second * 3)
 	http.Get("http://localhost/api/getlist/")
+	log.Info("Loaded.")
 }
 
 //DelayLoad delays the loading

@@ -21,6 +21,8 @@ func GetRoutes() Routes {
 		Route{"/api/getlist/", handleList},
 		Route{"/api/save/", handleSave},
 		Route{"/api/load/", handleLoad},
+		Route{"/api/update/", handleUpdate},
+		Route{"/api/forceUpdateAndIknowWhatIAmDoingAndPromiseToNotPressSaveAfter/", handleForceUpdate},
 		Route{"/api/", handleHelp},
 	}
 }

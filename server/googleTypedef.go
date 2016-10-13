@@ -16,9 +16,11 @@ type SearchResponse struct {
 
 //SearchItem is the item returned fromt he google search
 type SearchItem struct {
-	Pagemap Pagemap `json:"pagemap"`
+	//Pagemap Pagemap `json:"pagemap"`
+	Link string `json:"link"`
 }
 
+/*
 //Pagemap is a mapping of the items page
 type Pagemap struct {
 	ImageObject []ImageObject `json:"imageobject"`
@@ -28,31 +30,22 @@ type Pagemap struct {
 type ImageObject struct {
 	Thumbnail  string `json:"thumbnail"`
 	ContentURL string `json:"contenturl"`
-}
+}*/
 
 //Clean cleans the search ready for returning
-func (sr SearchResponse) Clean() (ImageObject, error) {
+func (sr SearchResponse) Clean() (string, error) {
 	if len(sr.SearchItem) == 0 {
-		return ImageObject{Thumbnail: errorImage, ContentURL: errorImage}, errors.New("searchresponse item len is 0")
+		return errorImage, errors.New("searchresponse item len is 0")
 	}
-	if len(sr.SearchItem[0].Pagemap.ImageObject) == 0 {
-		return ImageObject{Thumbnail: errorImage, ContentURL: errorImage}, errors.New("searchresponse imageObject len is 0")
+	if sr.SearchItem[0].Link == "" {
+		return sr.SearchItem[0].Link, errors.New("Thumbnail empty")
 	}
-	io := sr.SearchItem[0].Pagemap.ImageObject[0]
-	if io.ContentURL == "" && io.Thumbnail == "" {
-		return io, errors.New("Content url and Thumbnail empty")
-	}
-	if io.ContentURL == "" {
-		return io, errors.New("Content url empty")
-	}
-	if io.Thumbnail == "" {
-		return io, errors.New("Thumbnail empty")
-	}
-	return io, nil
+	return sr.SearchItem[0].Link, nil
 }
 
 //FinalPerson is a cleaner version of the search json for returning
 type FinalPerson struct {
-	ImageObject `json:"imageobject"`
-	Name        string `json:"query"`
+	Image string `json:"image,omitempty"`
+	Name  string `json:"query"`
+	Blurb string `json:"blurb,omitempty"`
 }

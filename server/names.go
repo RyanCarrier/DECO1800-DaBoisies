@@ -40,6 +40,19 @@ func (n *Names) Get(i int) (string, bool) {
 	return got, ok
 }
 
+//GetAll gets all the names
+func (n *Names) GetAll() []string {
+	n.Lock()
+	defer n.Unlock()
+	final := make([]string, len(n.Data))
+	i := 0
+	for _, v := range n.Data {
+		final[i] = v
+		i++
+	}
+	return final
+}
+
 //Put synchronously puts into the map
 func (n *Names) Put(i int, s string) {
 	n.Lock()

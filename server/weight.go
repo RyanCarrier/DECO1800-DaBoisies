@@ -86,6 +86,45 @@ func handleWeightYear(w http.ResponseWriter, r *http.Request) {
 	attemptWeightYear(w, r, 0)
 }
 
+func getWeightYear(year int, query string, attempt int) (CleanResponse, error) {
+	var cr CleanResponse
+	if attempt > attemptMax {
+		return cr, errors.New("Too many attempts")
+	}
+
+	if cr, err := weightings.get(query, year); err != nil {
+		if strings.Contains(err.Error(), "year") {
+			return cr, err
+		}
+		url := troveSearchURLBuilder(query, year)
+		log.Info("Accessing url; ", url)
+		response, err := http.Get(url)
+		if err != nil {
+			log.Warn("Error getting weighting", err)
+			return getWeightYear(year, query, attempt+1)
+		}
+		var gotr TopResponse
+		body, err := ioutil.ReadAll(response.Body)
+		if err != nil {
+			log.Warn("Error reading response body", err)
+			return getWeightYear(year, query, attempt+1)
+		}
+		err = json.Unmarshal(body, &gotr)
+		if err != nil {
+			log.Warn("Error unmarshalling response body", err)
+			return getWeightYear(year, query, attempt+1)
+		}
+		cr = gotr.Clean()
+		if year != 0 {
+			cr.Year = year
+		}
+		//log.Info("Putting", query, year, cr)
+		weightings.put(query, year, cr)
+		return cr, nil
+	}
+	return cr, nil
+}
+
 func attemptWeightYear(w http.ResponseWriter, r *http.Request, attempt int) {
 	if attempt > attemptMax {
 		w.Write([]byte("Failed to get weight... check server logs..."))
@@ -98,7 +137,6 @@ func attemptWeightYear(w http.ResponseWriter, r *http.Request, attempt int) {
 		return
 	}
 	year, ok := vars["year"]
-	var url string
 	var err error
 	yeari := 0
 	if ok && year != "" {
@@ -109,41 +147,11 @@ func attemptWeightYear(w http.ResponseWriter, r *http.Request, attempt int) {
 			return
 		}
 	}
-	var cr CleanResponse
-	if cr, err = weightings.get(search, yeari); err != nil {
-		if strings.Contains(err.Error(), "year") {
-			w.Write([]byte("{\"error\":\"" + err.Error() + "\"}"))
-			return
-		}
-		url = troveSearchURLBuilder(search, yeari)
-		log.Info("Accessing url; ", url)
-		response, err := http.Get(url)
-		if err != nil {
-			log.Warn("Error getting weighting", err)
-			attemptWeightYear(w, r, attempt+1)
-			return
-		}
-		var gotr TopResponse
-		body, err := ioutil.ReadAll(response.Body)
-		if err != nil {
-			log.Warn("Error reading response body", err)
-			attemptWeightYear(w, r, attempt+1)
-			return
-		}
-		err = json.Unmarshal(body, &gotr)
-		if err != nil {
-			log.Warn("Error unmarshalling response body", err)
-			attemptWeightYear(w, r, attempt+1)
-			return
-		}
-		cr = gotr.Clean()
-		if yeari != 0 {
-			cr.Year = yeari
-		}
-		log.Info("Putting", search, yeari, cr)
-		weightings.put(search, yeari, cr)
+	cr, err := getWeightYear(yeari, search, attempt)
+	if err != nil {
+		w.Write([]byte("Failed to get weight... check server logs..."))
+		return
 	}
-
 	body, err := json.Marshal(cr)
 	if err != nil {
 		log.Warn("Error unmarshalling for responding", err)

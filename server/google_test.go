@@ -7,15 +7,12 @@ import (
 )
 
 func TestParseBeyonceSearch(t *testing.T) {
-	want := ImageObject{ContentURL: "http://data.whicdn.com/images/35549397/large.jpg",
-		Thumbnail: "http://data.whicdn.com/images/35549397/thumbnail.jpg",
-	}
-	got := getSearchResponse(t).Clean()
-	if got.ContentURL != want.ContentURL || got.Thumbnail != got.Thumbnail {
-		t.Error("GOT Thumb:\n" + got.Thumbnail +
-			"\nWANT Thumb:\n" + want.Thumbnail +
-			"\nGOT ContentURL:\n" + got.ContentURL +
-			"\nWANT ContentURL:\n" + want.ContentURL)
+	want := "https://fuzfeed.com/wp-content/uploads/2014/09/Beyonc%C3%A9-newest-photos.jpg"
+	got, err := getSearchResponse(t).Clean()
+
+	if err != nil || got != want {
+		t.Error("GOT Thumb:\n" + got +
+			"\nWANT Thumb:\n" + want)
 	}
 }
 
