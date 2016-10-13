@@ -2,7 +2,7 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/dragdrop.js"></script>
+    <!--<script src="js/dragdrop.js"></script>-->
     <link rel="stylesheet" type="text/css" href="css/loadingSpinner.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> </head>
@@ -149,10 +149,10 @@
                 <h4>Play Game As A Guest</h2>
 				<button id="playBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Be A Mystery Player</button>
 			</div>
-			
+
 			<div id="guestSignUp" class="container-fluid center-block">
 				<h4>Sign Up</h2>
-				<button  id="signUpBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Compete To Be The Best</button>		
+				<button  id="signUpBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Compete To Be The Best</button>
 				<div id="signUpModal" class="modal container-fluid center-block">
 				  <div class="modal-content">
 					<div class="modal-header">
@@ -160,7 +160,7 @@
 						<h2>Sign Up</h2>
 					</div>
 					<div class="modal-body">
-						<form onsubmit="return formChecker()" method="post">	
+						<form onsubmit="return formChecker()" method="post">
 							<!-- Form to Sign Up -->
 							<p>Username: <input id='username' type='text' name='username'> </p>
 							<p>Password: <input id='pass1' type='text' name='password'> </p>
@@ -170,12 +170,12 @@
 						</form>
 					</div>
 				  </div>
-				</div>				
+				</div>
 			</div>
-			
+
 			<div id="guestLogin" class="container-fluid center-block">
 				<h4>Login</h2>
-				<button  id="loginBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Get Back In The Game</button>			
+				<button  id="loginBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Get Back In The Game</button>
 				<div id="loginModal" class="modal container-fluid center-block">
 				  <div class="modal-content">
 					<div class="modal-header">
@@ -191,17 +191,17 @@
 				  </div>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
-	
+
 	<div id="gameIndicators">
 		<div id="round-indicator">
 			<p id="round">Round 1 of 5</p>
 			<p id="year">Year 1</p>
 		</div>
 		<div id="dmgReport">
-			<button id="dmgBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Last Damage Report</button>			
+			<button id="dmgBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Last Damage Report</button>
 			<div id="dmgModal" class="modal container-fluid center-block">
 			  <div class="modal-content">
 				<div class="modal-header">
@@ -217,7 +217,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div id="16veryStart">
 		<div id="game-head" class="game-heading">
 			<h1>Your Squad</h1>
@@ -237,7 +237,7 @@
 		<!-- 16 guest -->
 		<!-- 17 acc -->
 	</div>
-	
+
 	<div id="19step1" class="container-fluid center-block">
 		<div id="step1Modal" class="modal container-fluid center-block">
 			<div class="modal-content">
@@ -255,10 +255,10 @@
 				<!-- Calls the createCards() function-->
 			</div>
 			<div class="row">
-            
+
             </div>
 		</div>
-		
+
 		<div id="s1Heading" class="game-heading">
 			<h1>Step 1: Gatho The Squad</h1>
 		</div>
@@ -272,7 +272,7 @@
 		</div>
 		<div id="submitBtn" class="container-fluid btn btn-success center-block" onclick="toStep2()">Submit Squad</div>
 	</div>
-	
+
 	<div id="20step2">
 		<div id="step2Modal" class="modal container-fluid center-block">
 			<div class="modal-content">
@@ -298,7 +298,7 @@
 		</div>
 		<div id="cont" class="container-fluid btn btn-success center-block" onclick="toStep3()">Continue</div>
 	</div>
-	
+
 	<div id="23step3">
 		<div id="step3Modal" class="modal container-fluid center-block">
 			<div class="modal-content">
@@ -311,7 +311,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div id="currDmgReport" class="container-fluid center-block">
 			<h2>Damage Report</h2>
 			<p>Year: </p>
@@ -321,7 +321,7 @@
 			<p>Average Grade: </p>
 		</div>
 	</div>
-	
+
 	<div id="24step4" class="container-fluid center-block">
 		<div id="step4Modal" class="modal container-fluid center-block">
 			<div class="modal-content">
@@ -341,14 +341,14 @@
 			<p>Continue With Current<br>Squad For The Next Round</p>
 		</div>
 	</div>
-	
+
 	<div id="28lastDmgRep">
 	</div>
-	
+
 	<div id="29finishGame">
 		<!-- 30 sign up / login -->
 	</div>
-	
+
 	<script src="js/api.js"></script>
 	<script src="js/game.js"></script>
 </body>
