@@ -406,7 +406,7 @@ function createCards() {
     while (x < 50) {
         x = x + 1;
         $("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\">" +
-            "<img src=\"" + people.people[x].image + "\" alt=\"Mountain View\" style=\"max-width:100%;\">" +
+            "<img src=\"" + people.people[x].image + "\" alt=\"Mountain View\" style=\"max-height:100%;max-width:100%;\">" +
             people.people[x].query + " </div>");
     }
 }
