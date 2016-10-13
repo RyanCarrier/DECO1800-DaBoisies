@@ -33,9 +33,11 @@ func DelayLoad(i int) {
 
 //Save saves the cached stuff to file
 func Save() {
+	log.Info("Saving...")
 	saveIDS()
 	saveNames()
 	savePeople()
+	log.Info("Saved.")
 }
 
 func handleSave(w http.ResponseWriter, r *http.Request) {
