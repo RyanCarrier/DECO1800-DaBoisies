@@ -2,10 +2,9 @@
 
 var zones = ["map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"];
 var names = [];
+var people;
 
 $(window).load(function() {
-    //$(help).append("If nothing is coming up, check if it is 'waiting for trove' in the bottom right corner. If it is refresh the page.");
-    //$(help).append("Also open up the dev console for more details.<br><br>");
     $("#helpExit").hide();
     $("#backTut").hide();
     $("#tutBox2").hide();
@@ -29,6 +28,19 @@ $(window).load(function() {
     $("#20step2").hide();
     $("#23step3").hide();
     $("#24step4").hide();
+    $.ajax({
+        type: 'GET',
+        url: "/api/getlist/",
+        async: false,
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(json) {
+            people = json;
+        },
+        error: function(e) {
+            alert("error getting data");
+        }
+    });
 
 });
 
@@ -394,7 +406,8 @@ function createCards() {
     while (x < 50) {
         x = x + 1;
         $("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\">" +
-            "c" + x + "</div>");
+            "<img src=\"" + people.people[x].image + "\" alt=\"Mountain View\" style=\"max-width:100%;\">" +
+            people.people[x].query + " </div>");
     }
 }
 
@@ -402,26 +415,25 @@ function formChecker() {
     var username = document.getElementById("username").value;
     var pass1 = document.getElementById("pass1").value;
     var pass2 = document.getElementById("pass2").value;
-    var ok = true;
     if (pass1 != pass2) {
         document.getElementById("pass1").style.borderColor = "#E34234";
         document.getElementById("pass2").style.borderColor = "#E34234";
-        ok = false;
+        return false;
     }
     if (username === "") {
         alert("Username has not been defined.");
         document.getElementById("username").style.borderColor = "#E34234";
-        ok = false;
+        return false;
     } else if (pass1 === "") {
         alert("A password has not been set.");
         document.getElementById("pass1").style.borderColor = "#E34234";
-        ok = false;
+        return false;
     } else if (pass2 !== pass1) {
         alert("Your passwords don't match.");
         document.getElementById("pass2").style.borderColor = "#E34234";
-        ok = false;
+        return false;
     } else {
         alert("Passwords Match!!!");
+        return true;
     }
-    return ok;
 }
