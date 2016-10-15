@@ -403,11 +403,16 @@ function finishGame() {
 
 function createCards() {
     x = 0;
-    while (x < 50) {
-        x = x + 1;
-        $("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\">" +
-            "<img src=\"" + people.people[x].image + "\" alt=\"Mountain View\" style=\"max-height:100%;max-width:100%;\">" +
-            people.people[x].query + " </div>");
+    while (x < people.people.length) {
+        if (people.people[x] === undefined) {
+            alert(JSON.stringify(people.people[x]));
+            alert(x);
+        } else {
+            $("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\">" +
+                "<img src=\"" + people.people[x].image + "\" alt=\"Mountain View\" style=\"max-height:100%;max-width:100%;\">" +
+                people.people[x].query + " </div>");
+        }
+        x++;
     }
 }
 
