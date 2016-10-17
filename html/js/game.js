@@ -408,7 +408,7 @@ function createCards() {
             alert(JSON.stringify(people.people[x]));
             alert(x);
         } else {
-            $("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\">" +
+            $("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\" " + " draggable=\"true\" ondragstart=\"drag(event)\">"+
                 "<img src=\"" + people.people[x].image + "\" alt=\"Mountain View\" style=\"max-height:100%;max-width:100%;\">" +
                 people.people[x].query + " </div>");
         }
@@ -441,4 +441,18 @@ function formChecker() {
         alert("Passwords Match!!!");
         return true;
     }
+}
+
+function allowDrop(ev) {
+	ev.preventDefault();
+}
+
+function drag(ev) {
+	ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+	ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
 }
