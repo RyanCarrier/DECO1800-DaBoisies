@@ -218,6 +218,10 @@ td {
     transition: 0.3s;
 }
 
+.newbox {
+	border: 2px;
+}
+
 .helper a:hover, .helper a:focus {
     color: orange;
 }
