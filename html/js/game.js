@@ -3,6 +3,7 @@
 var zones = ["map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"];
 var names = [];
 var people;
+var sqbox = [0,0,0,0,0,0];
 
 $(window).load(function() {
     $("#helpExit").hide();
@@ -454,5 +455,60 @@ function drag(ev) {
 function drop(ev) {
 	ev.preventDefault();
     var data = ev.dataTransfer.getData("text"); 
-    ev.target.appendChild(document.getElementById(data));
+	var target = $( event.target );
+	console.log(target.attr('id'));
+	
+	if (target.attr("id") == "sm1") {
+		alert("sm1");
+		if (sqbox[0] === 0) {
+			ev.target.appendChild(document.getElementById(data));
+			sqbox[0] += 1; 
+			alert(sqbox);
+		} else {
+			console.log("nup");
+		}
+	}
+	if (target.attr("id") == "sm2") {
+		if (sqbox[1] === 0) {
+			ev.target.appendChild(document.getElementById(data));
+			sqbox[1] += 1; 
+		} else {
+			console.log("nup");
+		}
+	}
+	if (target.attr("id") == "sm3") {
+		if (sqbox[2] === 0) {
+			ev.target.appendChild(document.getElementById(data));
+			sqbox[2] += 1; 
+		} else {
+			console.log("nup");
+		}
+	}
+	if (target.attr("id") == "sm4") {
+		if (sqbox[3] === 0) {
+			ev.target.appendChild(document.getElementById(data));
+			sqbox[3] += 1; 
+		} else {
+			console.log("nup");
+		}
+	}
+	if (target.attr("id") == "sm5") {
+		if (sqbox[4] === 0) {
+			ev.target.appendChild(document.getElementById(data));
+			sqbox[4] += 1; 
+		} else {
+			console.log("nup");
+		}
+	}
+	if (target.attr("id") == "sm6") {
+		if (sqbox[5] === 0) {
+			ev.target.appendChild(document.getElementById(data));
+			sqbox[5] += 1; 
+		} else {
+			console.log("nup");
+		}
+	}
+	else{
+		//ev.target.appendChild(document.getElementById(data));
+	}
 }
