@@ -3,7 +3,7 @@
 var zones = ["map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"];
 var names = [];
 var people;
-var sqbox = [0,0,0,0,0,0];
+var sqbox = [0, 0, 0, 0, 0, 0];
 
 $(window).load(function() {
     $("#helpExit").hide();
@@ -409,7 +409,7 @@ function createCards() {
             alert(JSON.stringify(people.people[x]));
             alert(x);
         } else {
-            $("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\" " + " draggable=\"true\" ondragstart=\"drag(event)\">"+
+            $("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\" " + " draggable=\"true\" ondragstart=\"drag(event)\">" +
                 "<img src=\"" + people.people[x].image + "\" alt=\"Mountain View\" style=\"max-height:100%;max-width:100%;\">" +
                 people.people[x].query + " </div>");
         }
@@ -445,68 +445,43 @@ function formChecker() {
 }
 
 function allowDrop(ev) {
-	ev.preventDefault();
+    ev.preventDefault();
 }
 
 function drag(ev) {
-	ev.dataTransfer.setData("text", ev.target.id);
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function dropDefault(ev) {
+    //$("#cards").append(ev.);
+    ev.target.append(document.getElementById("cards"));
 }
 
 function drop(ev) {
-	ev.preventDefault();
-    var data = ev.dataTransfer.getData("text"); 
-	var target = $( event.target );
-	console.log(target.attr('id'));
-	
-	if (target.attr("id") == "sm1") {
-		if (sqbox[0] === 0) {
-			ev.target.appendChild(document.getElementById(data));
-			sqbox[0] += 1; 
-		} else {
-			console.log("nup");
-		}
-	}
-	else if (target.attr("id") == "sm2") {
-		if (sqbox[1] === 0) {
-			ev.target.appendChild(document.getElementById(data));
-			sqbox[1] += 1; 
-		} else {
-			console.log("nup");
-		}
-	}
-	else if (target.attr("id") == "sm3") {
-		if (sqbox[2] === 0) {
-			ev.target.appendChild(document.getElementById(data));
-			sqbox[2] += 1; 
-		} else {
-			console.log("nup");
-		}
-	}
-	else if (target.attr("id") == "sm4") {
-		if (sqbox[3] === 0) {
-			ev.target.appendChild(document.getElementById(data));
-			sqbox[3] += 1; 
-		} else {
-			console.log("nup");
-		}
-	}
-	else if (target.attr("id") == "sm5") {
-		if (sqbox[4] === 0) {
-			ev.target.appendChild(document.getElementById(data));
-			sqbox[4] += 1; 
-		} else {
-			console.log("nup");
-		}
-	}
-	else if (target.attr("id") == "sm6") {
-		if (sqbox[5] === 0) {
-			ev.target.appendChild(document.getElementById(data));
-			sqbox[5] += 1; 
-		} else {
-			console.log("nup");
-		}
-	}
-	else{
-		ev.target.appendChild(document.getElementById(data));
-	}
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var target = $(event.target);
+    console.log(target.attr('id'));
+    var id = target.attr("id");
+    //console.log(id[1] == 'm');
+    if (id.length == 3 && id[0] == 's' && id[1] == 'm') {
+        //id[2] == '6'
+        //+id[2] == 6
+        var i = +id[2] - 1;
+        if (sqbox[i] === 0) {
+            ev.target.appendChild(document.getElementById(data));
+            sqbox[i] = 1;
+        } else {
+            console.log("nup");
+        }
+    } else if (id === "cards") {
+        console.log(id);
+        dropDefault(ev);
+    } else if (id[0] == 'c') {
+        console.log("don't put me on another card u retard");
+    } else {
+        dropDefault(ev);
+        //ev.preventDefault();
+        //
+    }
 }
