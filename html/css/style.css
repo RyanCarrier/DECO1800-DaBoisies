@@ -218,8 +218,20 @@ td {
     transition: 0.3s;
 }
 
+.squadie {
+	text-align: center;
+}
+
 .newbox {
-	border: 2px;
+	color: white;
+	display: inline-block;
+	background-color: orange;
+	width: auto;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	border: 2px solid orange;
+	margin: 2px;
 }
 
 .helper a:hover, .helper a:focus {
@@ -303,19 +315,6 @@ td {
 	text-align: left;
 	border: 2px solid white;
 	border-radius: 0px;
-}
-
-#theSquad {
-	color: white;
-	margin: auto;
-	display: block;
-	background-color: orange;
-	width: 855px;
-	padding: 0.25em;
-	text-align: center;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border-radius: 0px;
-	border: 2px solid orange;
 }
 
 .member {
