@@ -471,14 +471,13 @@ function drop(ev) {
     console.log(target.attr('id'));
     var id = target.attr("id");
 	var i = +id[2] - 1;
-	var a = 'sm';
-    //console.log(id[1] == 'm');
     if (id.length == 3 && id[0] == 's' && id[1] == 'm') {
-        //id[2] == '6'
-        //+id[2] == 6
 		if (sqbox[i] === 0) {
             dropDefault(ev);
             sqbox[i] = 1;
+			id = lastClicked;
+			a = +id[2] - 1;
+			sqbox[a] = 0;
         } else {
             console.log("nup");
         }
@@ -491,8 +490,6 @@ function drop(ev) {
     } else if (id[0] == 'c') {
         console.log("don't put me on another card u retard");
     } else {
-        dropDefault(ev);
-        //ev.preventDefault();
-        //
+		dropDefault(ev);
     }
 }
