@@ -126,14 +126,17 @@
             <!-- show user's game history -->
         </div>
         <div id="homeOptions" class="container-fluid center-block">
-            <div id="guestPlay" class="container-fluid center-block" onclick="playGame()">
-                <h4>Play Game As A Guest</h2>
-				<button id="playBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Be A Mystery Player</button>
-			</div>
+           <button id="guestPlay" class="container-fluid center-block" onclick="playGame()">
+                <h4>Play Game As A Guest</h4>
 
-			<div id="guestSignUp" class="container-fluid center-block">
-				<h4>Sign Up</h2>
-				<button  id="signUpBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Compete To Be The Best</button>
+				<!---<button id="playBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Be A Mystery Player</button>--->
+
+			</button>
+
+			<button id="guestSignUp" class="container-fluid center-block">
+				<h4>Sign Up</h4></br>
+				<!--<button  id="signUpBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Compete To Be The Best</button>
+
 				<div id="signUpModal" class="modal container-fluid center-block">
 				  <div class="modal-content">
 					<div class="modal-header">
@@ -142,21 +145,19 @@
 					</div>
 					<div class="modal-body">
 						<form onsubmit="return formChecker()" method="post">
-							<!-- Form to Sign Up -->
 							<p>Username: <input id='username' type='text' name='username'> </p>
 							<p>Password: <input id='pass1' type='text' name='password'> </p>
 							<p>Confirm Password: <input id='pass2' type='text' name='re-password'> </p>
 							<p><input type='submit' value='Submit'> </p>
-							<!-- OK BUTTON -->
 						</form>
 					</div>
 				  </div>
-				</div>
-			</div>
+				</div>-->
+			</button>
 
-			<div id="guestLogin" class="container-fluid center-block">
-				<h4>Login</h2>
-				<button  id="loginBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Get Back In The Game</button>
+			<button id="guestLogin" class="container-fluid center-block">
+				<h4>Login</h4></br>
+				<!--<button  id="loginBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Get Back In The Game</button>
 				<div id="loginModal" class="modal container-fluid center-block">
 				  <div class="modal-content">
 					<div class="modal-header">
@@ -164,14 +165,13 @@
 					  <h2>Login</h2>
 					</div>
 					<div class="modal-body">
-						<!-- Form to Login -->
 						<p>Username: <input type='text' name='username'> </p>
 						<p>Password: <input id='pass1' type='text' name='password'> </p>
-						<!-- OK BUTTON -->
+
 					</div>
 				  </div>
-				</div>
-			</div>
+				</div>-->
+			</button>
 
 		</div>
 	</div>
