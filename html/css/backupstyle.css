@@ -22,7 +22,7 @@ body {
     width: 20%;
 }
 
-.boisBox {
+#tutBox, #tutBox2, #tutBox3, #tutBox4, #tutBox5, #tutBox6, #tutBox7, #tutBox8, #tutBox9 {
 	color: white;
 	margin: auto;
 	display: block;
@@ -75,7 +75,14 @@ td {
 	border: 2px solid orange;
 	width: 90%;
 }
-
+.boisBtn {
+  background-color: orange;
+  text-align: center;
+  border-radius: 0px;
+  border: 2px solid orange;
+  width: 90%;
+  color: #fff;
+}
 
 #round-indicator {
 	color: white;
@@ -106,7 +113,7 @@ td {
 	width: 150px;
 }
 
-.startBtn {
+#guestPlay, #guestSignUp, #guestLogin {
 	float: left;
 	color: white;
 	margin: auto;
@@ -136,7 +143,7 @@ td {
 	border-radius: 0px;
 }
 
-.startBtn:hover, #skipButton:hover, #backMenu:hover, #backTut:hover, #nextTut:hover, #helperButton:hover, #guestPlay:hover, #guestSignUp:hover, #guestLogin:hover, #startGame:hover, #homeBtn:hover, #playBtn:hover, #signUpBtn:hover, #loginBtn:hover, #dmgBtn:hover, #submitBtn:hover, #cont:hover, #modSquadBtn:hover, #contSquadBtn:hover {
+.boisBtn:hover {
 	color: orange;
 	background-color: white;
 	border: 2px solid #B52EFF;
@@ -330,7 +337,7 @@ td {
 	border-radius: 0px;
 }
 
-div.sm, .sm {
+#sm1, #sm2, #sm3, #sm4, #sm5, #sm6 {
 	margin: 20px;
 	padding: 5px;
 	color: black;
@@ -356,6 +363,19 @@ div.sm, .sm {
     letter-spacing: 10px;
 }
 
+#startGame {
+	color: white;
+	margin: auto;
+	margin-top: 50px;
+	display: block;
+	background-color: orange;
+	width: 20%;
+	padding: 2em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	border: 2px solid orange;
+}
 
 #selection {
 	width: 75%;
@@ -383,7 +403,7 @@ div.sm, .sm {
 	border: 2px solid #B52EFF;
 }
 
-.nextBtn, #submitBtn, #cont {
+#submitBtn, #cont {
 	font-size: 13px;
 	bottom: 10%;
 	right: 12.5%;
@@ -446,19 +466,4 @@ div.sm, .sm {
 
 #contSquadBtn {
 	right: 25%;
-}
-
-.boisBtn:hover {
-	color: orange;
-	background-color: white;
-	border: 2px solid #B52EFF;
-}
-
-.boisBtn {
-  background-color: orange;
-  text-align: center;
-  border-radius: 0px;
-  border: 2px solid orange;
-  width: 90%;
-  color: #fff;
 }

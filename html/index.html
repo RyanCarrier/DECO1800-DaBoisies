@@ -6,313 +6,91 @@
     <link rel="stylesheet" type="text/css" href="css/loadingSpinner.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> </head>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/help.js"></script>
+<script src="js/dragNDrop.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/main.js"></script>
+
 <body>
-    <div id="help" class="helper"> <a id="helpExit" href="javascript:void(0)" class="closebtn" onclick="closeHelp()">&times;</a>
-        <div class="help-content">
-            <h1>Do you need some help?</h1>
-            <h2>Welcome to Ultimate Squad Goals Simulator 2K16</h2>
-            <p>Ultimate Squad Goals Simulator 2K16 is a fantasy party simulator where you must assemble a hypothetical squad of real life celebrities in an attempt to host the best parties ever. Click on the arrow to your right to begin the tutorial.</p>
-            <h2>The Objective</h2>
-            <p>The objective of the game is to host the best parties for five consecutive years in a row by inviting the most popular celebrities of those years.</p>
-            <h2>How It Works</h2>
-            <p>When you start a new game, you are provided with a random year between 2000 and 2010. This is the year you will begin your 5 consecutive yearly parties.</p>
-            <h2>Step 1: Gatho The Squad</h2>
-            <p>Your first step is to invite celebrities to your party - these celebrities are your squad members. Who you choose to invite to your squad will directly influence how successful your party is; the most popular celebrities (of each year) will better influence your party score. When you finish building your squad, submit your squad to finalize the invitations.</p>
-            <h2>Step 2: Muzz It Out!</h2>
-            <p>After submitting your squad, your party score is evaluated based on who you invited to be in your squad. The scoring system for each celebrity is calculated based on their time in the spotlight over the years. Each celebrity is given a popularity rating each year, which can increase or decrease depending on their career choices.</p>
-            <h2>Step 3: Sus Out The Damage</h2>
-            <p>After submitting your squad, you are provided with a damage report containing your party score for the year and individual assessment reports for each of your squad memers detailing: if they positively/negatively influenced the party score and what they were doing during that year (which may explain their influence on your party).</p>
-            <h2>Step 4: Mod Your Squad</h2>
-            <p>You have now passed your first year of your 5 consecutive yearly partying and have been provided with a damage report. Given the success or failure of your party, you start planning for next year's party by modifying your squad. You can continue with your current squad if you believe they will do well next year, or you can modify your squad to switch things up.</p>
-            <h2>How It Works</h2>
-            <p>You will loop through step 1 to step 4 for five consecutive years in a row. Your party score for each year is totalled to calculate your total party score. Depending on whether or not you want your score to be recorded, you can add you score to the leader board once you've finished playing for the five consecutive years.</p>
-            <h2>Leader Board</h2>
-            <p>You can play as a guest or you can login and create an account. The benefit of creating an account is that when you add your total party score to the leader board, your username will be posted as well - letting everyone know who's boss.</p>
-        </div>
-    </div> <span id="helperButton" class="container-fluid btn btn-success center-block" onclick="openHelp()">Help</span>
+    <span id="helperButton" class="container-fluid btn btn-success center-block" onclick="help()">Help!</span>
     <div class="logo container-fluid center-block"></div>
-</div>
-    <div id="backTut" class="container-fluid btn btn-success center-block" onclick="back()">
-        <p>Back</p>
-    </div>
-    <div id="nextTut" class="container-fluid btn btn-success center-block" onclick="next()">
-        <!-- or goHome() -->
-        <p>Start
-            <br>Tutorial</p>
-    </div>
-    </div>
-    <div id="2welcome">
-        <div id="tutBox" class="container-fluid center-block">
-            <h1>Welcome to Ultimate Squad Goals Simulator 2K16</h1>
-            <p>Ultimate Squad Goals Simulator 2K16 is a fantasy party simulator where you must assemble a hypothetical squad of real life celebrities in an attempt to host the best parties ever. Click on the arrow to your right to begin the tutorial.</p>
-        </div>
-        <div id="skipButton" class="container-fluid btn btn-success center-block" onclick="goHome1()">
-            <p>Skip Tutorial</p>
+
+    <div id="home">
+        <br>
+        <div id="startGameButton" class="boisBtn container-fluid btn center-block" onclick="next()">
+            <p>Start game!</p>
         </div>
     </div>
-    <div id="3objective">
-        <div id="tutBox2" class="container-fluid center-block">
-            <h1>The Objective</h1>
-            <p>The objective of the game is to host the best parties for five consecutive years in a row by inviting the most popular celebrities of those years.</p>
-        </div>
-    </div>
-    <div id="4howto">
-        <div id="tutBox3" class="container-fluid center-block">
-            <h1>How It Works</h1>
-            <p>When you start a new game, you are provided with a random year between 2000 and 2010. This is the year you will begin your 5 consecutive yearly parties.</p>
-        </div>
-    </div>
-    <div id="5step1">
-        <div id="tutBox4" class="container-fluid center-block">
-            <h1>Step 1: Gatho The Squad</h1>
-            <p>Your first step is to invite celebrities to your party - these celebrities are your squad members. Who you choose to invite to your squad will directly influence how successful your party is; the most popular celebrities (of each year) will better influence your party score. When you finish building your squad, submit your squad to finalize the invitations.</p>
-        </div>
-    </div>
-    <div id="6step2">
-        <div id="tutBox5" class="container-fluid center-block">
-            <h1>Step 2: Muzz It Out!</h1>
-            <p>After submitting your squad, your party score is evaluated based on who you invited to be in your squad. The scoring system for each celebrity is calculated based on their time in the spotlight over the years. Each celebrity is given a popularity rating each year, which can increase or decrease depending on their career choices.</p>
-        </div>
-    </div>
-    <div id="7step3">
-        <div id="tutBox6" class="container-fluid center-block">
-            <h1>Step 3: Sus Out The Damage</h1>
-            <p>After submitting your squad, you are provided with a damage report containing your party score for the year and individual assessment reports for each of your squad memers detailing: if they positively/negatively influenced the party score and what they were doing during that year (which may explain their influence on your party).</p>
-        </div>
-    </div>
-    <div id="8step4">
-        <div id="tutBox7" class="container-fluid center-block">
-            <h1>Step 4: Mod Your Squad</h1>
-            <p>You have now passed your first year of your 5 consecutive yearly partying and have been provided with a damage report. Given the success or failure of your party, you start planning for next year's party by modifying your squad. You can continue with your current squad if you believe they will do well next year, or you can modify your squad to switch things up.</p>
-        </div>
-    </div>
-    <div id="9howto2">
-        <div id="tutBox8" class="container-fluid center-block">
-            <h1>How It Works</h1>
-            <p>You will loop through step 1 to step 4 for five consecutive years in a row. Your party score for each year is totalled to calculate your total party score. Depending on whether or not you want your score to be recorded, you can add you score to the leader board once you've finished playing for the five consecutive years.</p>
-        </div>
-    </div>
-    <div id="10learderboard">
-        <div id="tutBox9" class="container-fluid center-block">
-            <h1>Leader Board</h1>
-            <p>You can play as a guest or you can login and create an account. The benefit of creating an account is that when you add your total party score to the leader board, your username will be posted as well - letting everyone know who's boss.</p>
-        </div>
-    </div>
-    <div id="11homeGuest">
-        <div id="guestLeaderBoard" class="table table-responsive container-fluid center-block">
-            <h1>Leader Board</h1>
-            <table id="board" class="table table-responsive container-fluid center-block">
-                <tr>
-                    <th>Ranking</th>
-                    <th>Username</th>
-                    <th>Party Score</th>
-                </tr>
-                <tr>
-                    <td>#1</td>
-                    <td>carrierpigeon</td>
-                    <td>68189</td>
-                </tr>
-                <tr>
-                    <td>#2</td>
-                    <td>iamrobin</td>
-                    <td>59894</td>
-                </tr>
-                <tr>
-                    <td>#3</td>
-                    <td>anotherbirdthing</td>
-                    <td>32654</td>
-                </tr>
-            </table>
-            <!-- show user's game history -->
-        </div>
-        <div id="homeOptions" class="container-fluid center-block">
-           <button id="guestPlay" class="container-fluid center-block" onclick="playGame()">
+
+    <div  id="homeOptions" class="container-fluid center-block"  style="display: none">
+      <div id="homeBox" class="container-fluid center-block boisBox">
+          <h1>Welcome to Ultimate Squad Goals Simulator 2K16</h1>
+          <p>Ultimate Squad Goals Simulator 2K16 is a fantasy party simulator where you must assemble a hypothetical squad of real life celebrities in an attempt to host the best parties ever. Click on the arrow to your right to begin the tutorial.</p>
+      </div>
+        <div class="container-fluid center-block" >
+            <div id="playBtn" class="btn container-fluid center-block startBtn" onclick="next()" >
                 <h4>Play Game As A Guest</h4>
-
-				<!---<button id="playBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Be A Mystery Player</button>--->
-
-			</button>
-
-			<button id="guestSignUp" class="container-fluid center-block">
-				<h4>Sign Up</h4></br>
-				<!--<button  id="signUpBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Compete To Be The Best</button>
-
-				<div id="signUpModal" class="modal container-fluid center-block">
-				  <div class="modal-content">
-					<div class="modal-header">
-						<a id="signUpExit" href="javascript:void(0)" class="closeSignUp">&times;</a>
-						<h2>Sign Up</h2>
-					</div>
-					<div class="modal-body">
-						<form onsubmit="return formChecker()" method="post">
-							<p>Username: <input id='username' type='text' name='username'> </p>
-							<p>Password: <input id='pass1' type='text' name='password'> </p>
-							<p>Confirm Password: <input id='pass2' type='text' name='re-password'> </p>
-							<p><input type='submit' value='Submit'> </p>
-						</form>
-					</div>
-				  </div>
-				</div>-->
-			</button>
-
-			<button id="guestLogin" class="container-fluid center-block">
-				<h4>Login</h4></br>
-				<!--<button  id="loginBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Get Back In The Game</button>
-				<div id="loginModal" class="modal container-fluid center-block">
-				  <div class="modal-content">
-					<div class="modal-header">
-						<a id="loginExit" href="javascript:void(0)" class="closeLogin">&times;</a>
-					  <h2>Login</h2>
-					</div>
-					<div class="modal-body">
-						<p>Username: <input type='text' name='username'> </p>
-						<p>Password: <input id='pass1' type='text' name='password'> </p>
-
-					</div>
-				  </div>
-				</div>-->
-			</button>
-
-		</div>
-	</div>
-
-	<div id="gameIndicators">
-		<div id="round-indicator">
-			<p id="round">Round 1 of 5</p>
-			<p id="year">Year 1</p>
-		</div>
-		<div id="dmgReport">
-			<button id="dmgBtn" type="button" class="btn-sm btn-primary container-fluid center-block">Last Damage Report</button>
-			<div id="dmgModal" class="modal container-fluid center-block">
-			  <div class="modal-content">
-				<div class="modal-header">
-					<a id="dmgExit" href="javascript:void(0)" class="closeDmg">&times;</a>
-				  <h2>Damage Report</h2>
-				</div>
-				<div class="modal-body">
-					<p>Year: </p>
-					<p>Party Score: </p>
-					<p>Grade: </p>
-				</div>
-			  </div>
-			</div>
-		</div>
-	</div>
-
-	<div id="16veryStart" class="squadie">
-		<div id="game-head" class="game-heading">
-			<h1>Your Squad</h1>
-		</div>
-		<div id="backMenu" class="container-fluid btn btn-success center-block" onclick="goHome3()">
-			<p>Back to Main Menu</p>
-		</div>
-		<div id="startGame" class="container-fluid btn btn-success center-block" onclick="toStep1()">Start Game</div>
-		<!-- 16 guest -->
-		<!-- 17 acc -->
-	</div>
-
-	<div id="19step1" class="container-fluid squadie">
-		<div id="step1Modal" class="modal container-fluid center-block">
-			<div class="modal-content">
-				<div class="modal-header">
-					<a id="step1Exit" href="javascript:void(0)" class="closeStep1Help">&times;</a>
-					<h2>Step 1 Instructions</h2>
-				</div>
-				<div class="modal-body">
-					<p>CLICK celebrity cards to find out more information.<br>DRAG AND DROP celebrity cards into your squad box to add the celebrity to your squad.</p>
-				</div>
-			</div>
-		</div>
-		<div id="selection" class="container-fluid center-block">
-			<div class="row" id="cards" ondrop="drop(event)" ondragover="allowDrop(event)">
-				<!-- Calls the createCards() function-->
-			</div>
-			<div class="row">
-
             </div>
-		</div>
+            <div id="loginBtn" class="btn container-fluid center-block startBtn disabled" onclick="sorry()">
+                <h4>Sign Up/Login</h4></br>
+            </div>
+            <div id="leaderboardBtn" class="btn container-fluid center-block startBtn" onclick="showLeaderboard()" >
+                <h4>Leaderboards</h4></br>
+            </div>
+        </div>
+    </div>
 
-		<div id="s1Heading" class="game-heading">
-			<h1>Step 1: Gatho The Squad</h1>
-		</div>
-		<div id="theSquad" class="newbox">
-			<div id="sm1" class="member container-fluid center-block" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-			<div id="sm2" class="member container-fluid center-block" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-			<div id="sm3" class="member container-fluid center-block" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-			<div id="sm4" class="member container-fluid center-block" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-			<div id="sm5" class="member container-fluid center-block" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-			<div id="sm6" class="member container-fluid center-block" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-		</div>
-		<div id="submitBtn" class="container-fluid btn btn-success center-block" onclick="toStep2()">Submit Squad</div>
-	</div>
+    <div id="gameIndicators" class="container-fluid center-block" style="display: none">
+        <div id="roundIndicator" class="boisBox">
+        </div>
+        <div id="dmgReport">
+            <button id="dmgBtn" type="button" class="btn-sm btn-primary container-fluid center-block disabled" onclick="sorry()">Last Damage Report</button>
+        </div>
+    </div>
 
-	<div id="20step2">
-		<div id="step2Modal" class="modal container-fluid center-block">
-			<div class="modal-content">
-				<div class="modal-header">
-					<a id="step2Exit" href="javascript:void(0)" class="closeStep2Help">&times;</a>
-					<h2>Step 2 Instructions</h2>
-				</div>
-				<div class="modal-body">
-					<p>Do willy nilly until your party finishes muzzing out.</p>
-				</div>
-			</div>
-		</div>
-		<div id="s2Heading" class="game-heading">
-			<h1>Step 2: Muzz It Out</h1>
-		</div>
-		<div id="cont" class="container-fluid btn btn-success center-block" onclick="toStep3()">Continue</div>
-	</div>
+<div id="squad" class="squadie" style="display:none">
+    <div id="squad" class="squadie">
+        <div id="game-head" class="game-heading">
+            <h1>Your Squad</h1>
+        </div>
+        <div id="backMenu" class="container-fluid btn btn-success center-block" onclick="home()">
+            <p>Back to Main Menu</p>
+        </div>
+    </div>
 
-	<div id="23step3">
-		<div id="step3Modal" class="modal container-fluid center-block">
-			<div class="modal-content">
-				<div class="modal-header">
-					<a id="step3Exit" href="javascript:void(0)" class="closeStep3Help">&times;</a>
-					<h2>Step 3 Instructions</h2>
-				</div>
-				<div class="modal-body">
-					<p>CLICK celebrity cards to find out what the celebrity was doing this year.</p>
-				</div>
-			</div>
-		</div>
+    <div class="container-fluid squadie">
+        <div id="selection" class="container-fluid center-block">
+          <div class="row" id="squadSummary" style="display:none">We are sorry but no squad summary is available at this time.</div>
+            <div class="row" id="cards" ondrop="drop(event)" ondragover="allowDrop(event)">
+            </div>
+            <div class="row">
+            </div>
+        </div>
 
-		<div id="currDmgReport" class="container-fluid center-block">
-			<h2>Damage Report</h2>
-			<p>Year: </p>
-			<p>Part Score: </p>
-			<p>Grade: </p>
-			<p>Subtotal Score: </p>
-			<p>Average Grade: </p>
-		</div>
-	</div>
+        <div id="theSquad" class="newbox">
+            <div id="sm1" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="sm2" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="sm3" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="sm4" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="sm5" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="sm6" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+        <div id="nextBtn" class="container-fluid btn center-block nextBtn" onclick="next()"></div>
+    </div>
+  </div>
 
-	<div id="24step4" class="container-fluid center-block">
-		<div id="step4Modal" class="modal container-fluid center-block">
-			<div class="modal-content">
-				<div class="modal-header">
-					<a id="step4Exit" href="javascript:void(0)" class="closeStep4Help">&times;</a>
-					<h2>Step 4 Instructions</h2>
-				</div>
-				<div class="modal-body">
-					<p>Based on your damage report, choose to modify your squad before the next round, or continue with your squad into next year's party.</p>
-				</div>
-			</div>
-		</div>
-		<div id="modSquadBtn" class="container-fluid center-block" onclick="backToStep1()">
-			<p>Modify Your Squad<br>Before The Next Round</p>
-		</div>
-		<div id="contSquadBtn" class="container-fluid center-block" onclick="backToStep2()">
-			<p>Continue With Current<br>Squad For The Next Round</p>
-		</div>
-	</div>
+    <!-- modal begin-->
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div id="myModalHead" class="modal-header">
+                </div>
+                <div id="myModalBody" class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div id="28lastDmgRep">
-	</div>
 
-	<div id="29finishGame">
-		<!-- 30 sign up / login -->
-	</div>
-
-	<script src="js/game.js"></script>
 </body>
