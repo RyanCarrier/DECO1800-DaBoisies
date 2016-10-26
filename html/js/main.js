@@ -68,7 +68,7 @@ function next() {
 function runDamage() {
     $("#theSquad").children("div").each(function(index, element) {
         $(element).each(function(i, e) {
-            //individualRunDamage(i, e);
+            individualRunDamage(i, e);
         });
         //individualRunDamage(index, element);
     });
@@ -77,7 +77,7 @@ function runDamage() {
             // Usage!
             //alert(JSON.stringify(squadLoaded));
             //  sleep(500).then(() => {});
-            i = -1;
+            //      i = -1;
         }
     }
     createModal("Damage report", "You scored " + roundScore + " this round with " + "someone" + " scoring the most points for you!");
