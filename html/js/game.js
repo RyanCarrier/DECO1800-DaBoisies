@@ -316,7 +316,12 @@ closeStep1Help.onclick = function() {
 };
 
 function toStep2() {
-
+    for (var i = 1; i <= 6; i++) {
+        if (!$('#sm' + i).is(':empty')) {
+            alert("Please fill your squad, squad number " + i + " is empty.");
+            return;
+        }
+    }
     document.getElementById("s2Heading").innerHTML = "<h1>Step 2: Muzz It Out</h1>";
     document.getElementById("cont").onclick = function() {
         toStep3();
@@ -454,7 +459,7 @@ function allowDrop(ev) {
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
     var id = "#" + ev.target.id;
-    var parentId = $(id).parent().attr("id")
+    var parentId = $(id).parent().attr("id");
     lastClicked = parentId;
 }
 
