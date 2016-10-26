@@ -18,8 +18,7 @@ var totalScore = 0;
 var zones = ["map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"];
 var names = [];
 var people;
-var sqbox = [0, 0, 0, 0, 0, 0];
-var lastClicked;
+
 
 function help() {
     helpModal(state);
@@ -47,12 +46,15 @@ function next() {
             runDamage();
             $("#squadSummary").show();
             $("#cards").hide();
+            $('#nextBtn').html("Next");
             break;
         case 3:
             round++;
             year++;
-            $("#squadSummary").show();
-            $("#cards").hide();
+            $("#squadSummary").hide();
+            $("#cards").show();
+            $('#nextBtn').html("Submit Squad");
+            $("#game-head").html("Mod your Squad");
             if (round > 5) {
                 state--;
                 next();
@@ -93,6 +95,7 @@ function home() {
     $('#home').show();
     $("#squadSummary").hide();
     $("#squadSummary").html("We are sorry but no squad summary is available at this time.");
+    $("#game-head").html("Choose your Squad");
     $("#cards").show();
     state = 0;
     round = 1;

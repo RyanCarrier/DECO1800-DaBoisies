@@ -1,3 +1,6 @@
+var sqbox = [0, 0, 0, 0, 0, 0];
+var lastClicked;
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
