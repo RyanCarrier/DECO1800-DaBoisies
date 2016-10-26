@@ -13,8 +13,6 @@ function drag(ev) {
 }
 
 function dropDefault(ev) {
-    //$("#cards").append(ev.);
-    //ev.target.append(document.getElementById("cards"));
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
 

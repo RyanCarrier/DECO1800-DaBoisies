@@ -2,18 +2,14 @@ var state = 0;
 var year = 2000;
 var round = 1;
 var totalScore = 0;
-//0 main menu
-//1 submain menu
-//2 choose squad
-//3 assess damage(do you want to edit or continue) -> loop to 2
-//4 final score
+/*STATE SUMMARY;
 
-/*
-"How does it work?",
-"Gatho The Squad",
-"Sus Out The Damage",
-"Mod Your Squad",
-"End game"*/
+0 main menu
+1 submain menu
+2 choose squad
+3 assess damage -> loop to 2 (four times)
+4 final score
+*/
 
 var zones = ["map", "collection", "list", "people", "book", "article", "music", "picture", "newspaper"];
 var names = [];
@@ -133,8 +129,4 @@ $(window).load(function() {
             alert("error getting data");
         }
     });
-    //$('#playBtn').removeClass("hidden");
-    //$('#loginBtn').removeClass("hidden");
-    //$('#leaderboardBtn').removeClass("hidden");
-    //setupListeners();
 });
