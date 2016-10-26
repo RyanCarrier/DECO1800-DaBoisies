@@ -68,7 +68,7 @@ function next() {
 function runDamage() {
     $("#theSquad").children("div").each(function(index, element) {
         $(element).each(function(i, e) {
-            individualRunDamage(i, e);
+            //individualRunDamage(i, e);
         });
         //individualRunDamage(index, element);
     });
