@@ -61,6 +61,9 @@ func (w *weighting) get(s string, i int) (CleanResponse, error) {
 func (w *weighting) put(s string, i int, cr CleanResponse) error {
 	w.Lock()
 	defer w.Unlock()
+	if cr.Query == "" {
+		return errors.New("CleanResponse has no query")
+	}
 	i, err := w.convert(i)
 	if err != nil {
 		log.Warn("year wrong", err)
@@ -88,12 +91,13 @@ func handleWeightYear(w http.ResponseWriter, r *http.Request) {
 
 func getWeightYear(year int, query string, attempt int) (CleanResponse, error) {
 	var cr CleanResponse
+	var err error
 	if attempt > attemptMax {
 		return cr, errors.New("Too many attempts")
 	}
 
-	if cr, err := weightings.get(query, year); err != nil {
-		if strings.Contains(err.Error(), "year") {
+	if cr, err = weightings.get(query, year); err != nil || cr.Query != "" {
+		if err != nil && strings.Contains(err.Error(), "year") {
 			return cr, err
 		}
 		url := troveSearchURLBuilder(query, year)

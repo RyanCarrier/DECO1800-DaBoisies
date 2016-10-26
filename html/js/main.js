@@ -1,7 +1,11 @@
+/*jshint esversion: 6 */
 var state = 0;
 var year = 2000;
 var round = 1;
 var totalScore = 0;
+var squadLoaded = [false, false, false, false, false, false];
+var squadScore = [0, 0, 0, 0, 0, 0];
+var roundScore = 0;
 /*STATE SUMMARY;
 
 0 main menu
@@ -62,10 +66,46 @@ function next() {
 }
 
 function runDamage() {
+    $("#theSquad").children("div").each(function(index, element) {
+        $(element).each(function(i, e) {
+            individualRunDamage(i, e);
+        });
+        //individualRunDamage(index, element);
+    });
+    for (var i = 0; i <= squadLoaded.length; i++) {
+        if (squadLoaded[i] === false) {
+            // Usage!
+            //alert(JSON.stringify(squadLoaded));
+            //  sleep(500).then(() => {});
+            i = -1;
+        }
+    }
+    createModal("Damage report", "You scored " + roundScore + " this round with " + "someone" + " scoring the most points for you!");
+
     //get names from thingy
     //loop over them
     //print to modal with spinner while loading
 
+}
+
+function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+function individualRunDamage(index, element) {
+    name = $(element).text().trim();
+    alert("/api/weight/" + encodeURI(name) + "/year/" + year);
+    $.getJSON("/api/weight/" + encodeURI(name) + "/year/" + year, function(got) {
+        total = 0;
+        for (var i = 0; i < got.zones.length; i++) {
+            total += got.zones[i].total;
+        }
+        total *= 47;
+        total /= 7;
+        alert(index);
+        squadScore[index] = total;
+        squadLoaded[index] = true;
+    });
 }
 
 function isSquadFull() {
@@ -108,8 +148,8 @@ function createCards() {
             alert(x);
         } else {
             $("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\" " + " draggable=\"true\" ondragstart=\"drag(event)\">" +
-                "<img src=\"" + people.people[x].image + "\" style=\"max-height:100%;max-width:100%;\">" +
-                people.people[x].query + " </div>");
+                "<img src=\"" + people.people[x].image + "\" style=\"max-height:100%;max-width:100%;\"><p>" +
+                people.people[x].query + " </p></div>");
         }
         x++;
     }
