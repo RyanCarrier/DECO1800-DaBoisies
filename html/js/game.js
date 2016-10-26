@@ -317,8 +317,8 @@ closeStep1Help.onclick = function() {
 
 function toStep2() {
     for (var i = 1; i <= 6; i++) {
-        if (!$('#sm' + i).is(':empty')) {
-            alert("Please fill your squad, squad number " + i + " is empty.");
+        if ($('#sm' + i).is(':empty')) {
+            alert("Please fill slot " + i + " with a celeb!");
             return;
         }
     }
