@@ -29,7 +29,7 @@ function next() {
         case 0:
             $('#homeOptions').show();
             $('#home').hide();
-            //I want the logo tos tart big and shrink small
+            //I want the logo to start big and shrink small
             break;
         case 1:
             $('#homeOptions').hide();
