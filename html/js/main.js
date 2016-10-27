@@ -1,6 +1,8 @@
 /*jshint esversion: 6 */
 var state = 0;
 var year = 2000;
+//from 1980
+//max 2014
 var round = 1;
 var totalScore = 0;
 var squadLoaded = [false, false, false, false, false, false];
@@ -47,23 +49,33 @@ function next() {
             }
             $("#squadSummary").show();
             $("#cards").hide();
-            $("#nextBtn").html(`Mod my squad!`);
+            if (round < 4) {
+                $("#nextBtn").html(`Mod my squad!`);
+            } else {
+                $("#nextBtn").html(`Final summary!`);
+            }
             runDamage();
+            round++;
+            year++;
+            doGameIndicator();
             //$('#nextBtn').html("Next");
             break;
         case 3:
-            round++;
-            year++;
             $("#squadSummary").hide();
             $("#cards").show();
             $('#nextBtn').html("Submit Squad");
             $("#game-head").html("Mod your Squad");
-            if (round > 5) {
-                state--;
+            if (round < 5) {
+                squadLoaded = [false, false, false, false, false, false];
+                squadScore = [0, 0, 0, 0, 0, 0];
+                squad = ["", "", "", "", "", ""];
+                state -= 2;
                 next();
                 return;
             }
-            $("#squadSummary").html("Final score is " + totalScore);
+            createModal("Finay away!", "Your final score was " + totalScore + " great job!! ish...");
+            //$("#squadSummary").html("Final score is " + totalScore);
+            home();
     }
     state++;
 }
@@ -80,7 +92,7 @@ function runDamage() {
         //xx = 0;
         //individualRunDamage(index, element);
     });
-    createModal("Loading...", `<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>`);
+    createModal("Muzzing...", `<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>`);
     setTimeout(hasLoaded, 100);
 
 
@@ -102,6 +114,7 @@ function hasLoaded() {
     console.log("loaded...");
     createModal("Damage report", "You scored " + roundScore + " this round with " + "someone" + " scoring the most points for you!");
     totalScore += roundScore;
+
 }
 
 function sleep(time) {

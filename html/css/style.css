@@ -233,7 +233,7 @@ div.menubuttons, .menubuttons{
     color: orange;
 }
 
-.helper .closebtn {
+.helper .close {
     position: absolute;
     top: 20px;
     right: 45px;
@@ -382,6 +382,25 @@ div.sm, .sm {
 	border: 2px solid orange;
 }
 
+.midBoisBtn {
+	font-size: 13px;
+	bottom: 10%;
+	left: 12.5%;
+	position: absolute;
+	height: 75px;
+	width: 150px;
+	color: white;
+	margin: auto;
+	margin-top: 50px;
+	display: block;
+	background-color: orange;
+	padding: 2em;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	border: 2px solid orange;
+}
+
 #currDmgReport {
 	color: white;
 	margin: auto;
@@ -428,7 +447,7 @@ div.sm, .sm {
 	right: 25%;
 }
 
-.boisBtn:hover {
+div.midBoisBtn:hover, .midBoisBtn:hover, .boisBtn:hover {
 	color: orange;
 	background-color: white;
 	border: 2px solid #B52EFF;

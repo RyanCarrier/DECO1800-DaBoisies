@@ -14,5 +14,7 @@
 }
 
 .glyphicon.glyphicon-refresh {
-    font-size: 75px;
+    font-size: 100px;
+    display:block;
+    text-align: center;
 	}
