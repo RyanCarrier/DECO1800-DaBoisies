@@ -220,6 +220,8 @@ div.menubuttons, .menubuttons{
 .newbox {
 	color: white;
 	display: inline-block;
+/*  position:fixed;
+ bottom:20px;*/
 	background-color: orange;
 	width: auto;
 	text-align: center;
