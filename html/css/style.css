@@ -105,25 +105,25 @@ div.topBtnsL, .topBtnsL {
 	width: 150px;
 }
 
-div.startBtn, .startBtn {
+.startBtn {
 	float: left;
 	color: white;
 	margin-top: 1%;
-	margin-right: 1.2%;
 	display: inline-block;
 	background-color: orange;
 	height: 10%;
-	width: 32%;
+	width: 20%;
 	text-align: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 0px;
 	border: 2px solid orange;	
+	
 }
 
 .menubuttons{
 	display: block;
 	text-align: center;
-	width: 55%;
+	width: 60%;
 }
 
 .menu{

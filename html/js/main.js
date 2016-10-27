@@ -148,7 +148,7 @@ function createCards() {
             alert(x);
         } else {
             $("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\" " + " draggable=\"true\" ondragstart=\"drag(event)\">" +
-                "<img src=\"" + people.people[x].image + "\" style=\"max-height:100%;max-width:100%;\"><p>" +
+                "<img src=\"" + people.people[x].image + "\" style=\"max-height:100%;max-width:100%;pointer-events:none;\"><p>" +
                 people.people[x].query + " </p></div>");
         }
         x++;
