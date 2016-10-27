@@ -18,6 +18,8 @@ body {
 /*	background-image: url("../img/logo2.png");*/
     background-size: 100%;
     background-repeat: no-repeat;
+    height: "75%";
+    width: "100%";
 }
 
 .boisBox {
@@ -118,7 +120,7 @@ div.topBtnsL, .topBtnsL {
 
 }
 
-.menubuttons{
+div.menubuttons, .menubuttons{
 	display: block;
 	text-align: center;
 	width: 60%;
