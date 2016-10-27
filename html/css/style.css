@@ -116,8 +116,8 @@ div.topBtnsL, .topBtnsL {
 	text-align: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 0px;
-	border: 2px solid orange;	
-	
+	border: 2px solid orange;
+
 }
 
 .menubuttons{
@@ -276,33 +276,26 @@ div.topBtnsL, .topBtnsL {
 }
 
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    width: 50%;
-    height: 100%;
-    overflow: auto;
-}
-
 .modal-content {
     position: fixed;
     width: 100%;
 }
 
 .modal-header {
+
     color: white;
-	border: 2px solid #B52EFF; /* POP UP WINDOW COLOUR + WHITE */
+	/*border: 2px solid #B52EFF; /* POP UP WINDOW COLOUR + WHITE */
 	background-color: #B52EFF; /* POP UP WINDOW COLOUR + WHITE */
-	border-radius: 0px;
+	border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .modal-body {
-    padding: 15px 50px;
+    /*padding: 15px 50px;*/
 	color: purple;
 	text-align: left;
 	border: 2px solid white;
-	border-radius: 0px;
+	border-radius: 5px;
 }
 
 .member {
@@ -440,6 +433,10 @@ div.sm, .sm {
 	background-color: white;
 	border: 2px solid #B52EFF;
 }
+
+
+
+
 
 .boisBtn {
   background-color: orange;

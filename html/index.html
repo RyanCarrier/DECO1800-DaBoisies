@@ -13,7 +13,25 @@
 <script src="js/main.js"></script>
 
 <body>
-    <span id="helperButton" class="container-fluid btn btn-success center-block" onclick="help()">Help!</span>
+<span id="helperButton" class="container-fluid btn btn-success center-block" onclick="help()">Help!</span>
+<div class="container-fluid">
+  <!-- modal begin-->
+  <div id="myModal" class="modal fade container-fluid" role="dialog">
+
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <div id="myModalHead" class="modal-header">
+                  </div>
+                  <div id="myModalBody" class="modal-body">
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+
+  </div>
+
     <div class="logo container-fluid center-block"></div>
 
     <div id="home">
@@ -23,25 +41,25 @@
         </div>
     </div>
 
-    <div id="homeOptions" class="container-fluid menu"  style="display: none">
-	<div class="container">
-		<div id="homeBox" class="container-fluid center-block boisBox row">
-          <h1>Welcome to Ultimate Squad Goals Simulator 2K16</h1>
-          <p>Ultimate Squad Goals Simulator 2K16 is a fantasy party simulator where you must assemble a hypothetical squad of real life celebrities in an attempt to host the best parties ever. Click on the arrow to your right to begin the tutorial.</p>
-		</div>
-		<div class="container-fluid menubuttons">
-            <div id="playBtn" class="btn container-fluid startBtn col-md-4" onclick="next()" >
-                <h4>Play Game As A Guest</h4>
+    <div id="homeOptions" class="container-fluid menu" style="display: none">
+        <div class="container">
+            <div id="homeBox" class="container-fluid center-block boisBox row">
+                <h1>Welcome to Ultimate Squad Goals Simulator 2K16</h1>
+                <p>Ultimate Squad Goals Simulator 2K16 is a fantasy party simulator where you must assemble a hypothetical squad of real life celebrities in an attempt to host the best parties ever. Click on the arrow to your right to begin the tutorial.</p>
             </div>
-            <div id="loginBtn" class="btn container-fluid startBtn disabled col-md-4" onclick="sorry()">
-                <h4>Sign Up/Login</h4></br>
-            </div>
-            <div id="leaderboardBtn" class="btn container-fluid startBtn col-md-4" onclick="showLeaderboard()" >
-                <h4>Leaderboards</h4></br>
+            <div class="container-fluid menubuttons">
+                <div id="playBtn" class="btn container-fluid startBtn col-md-4" onclick="next()">
+                    <h4>Play Game As A Guest</h4>
+                </div>
+                <div id="loginBtn" class="btn container-fluid startBtn disabled col-md-4" onclick="sorry()">
+                    <h4>Sign Up/Login</h4></br>
+                </div>
+                <div id="leaderboardBtn" class="btn container-fluid startBtn col-md-4" onclick="showLeaderboard()">
+                    <h4>Leaderboards</h4></br>
+                </div>
             </div>
         </div>
     </div>
-	</div>
 
     <div id="gameIndicators" class="container-fluid center-block" style="display: none">
         <div id="roundIndicator" class="topBtnsL">
@@ -51,49 +69,40 @@
         </div>
     </div>
 
-<div id="squad" class="squadie" style="display:none">
-    <div id="squad" class="squadie">
-        <div id="game-head" class="game-heading">
-            <h1>Choose your Squad</h1>
-        </div>
-        <div class="container-fluid btn btn-success center-block midBoisBtn" onclick="home()">
-            <p>Back to Main Menu</p>
-        </div>
-    </div>
-
-    <div class="container-fluid squadie">
-        <div id="selection" class="container-fluid center-block">
-          <div class="row" id="squadSummary" style="display:none">We are sorry but no squad summary is available at this time.</div>
-            <div class="row" id="cards" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div id="squad" class="squadie" style="display:none">
+        <div id="squad" class="squadie">
+            <div id="game-head" class="game-heading">
+                <h1>Choose your Squad</h1>
             </div>
-            <div class="row">
+            <div class="container-fluid btn btn-success center-block midBoisBtn" onclick="home()">
+                <p>Back to Main Menu</p>
             </div>
         </div>
 
-        <div id="theSquad" class="newbox">
-            <div id="sm1" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="sm2" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="sm3" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="sm4" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="sm5" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="sm6" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        </div>
-        <div id="nextBtn" class="container-fluid btn center-block nextBtn" onclick="next()"></div>
-    </div>
-  </div>
-
-    <!-- modal begin-->
-    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div id="myModalHead" class="modal-header">
+        <div class="container-fluid squadie">
+            <div id="selection" class="container-fluid center-block">
+                <div class="row" id="squadSummary" style="display:none">We are sorry but no squad summary is available at this time.</div>
+                <div class="row" id="cards" ondrop="drop(event)" ondragover="allowDrop(event)">
                 </div>
-                <div id="myModalBody" class="modal-body">
+                <div class="row">
                 </div>
             </div>
+
+            <div id="theSquad" class="newbox">
+                <div id="sm1" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="sm2" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="sm3" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="sm4" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="sm5" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="sm6" class="member container-fluid center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+            <div id="nextBtn" class="container-fluid btn center-block nextBtn" onclick="next()"></div>
         </div>
     </div>
-<div id="datacontainer" class="hidden">
-</div>
+
+
+    <div id="datacontainer" class="hidden">
+    </div>
+    </div>
 
 </body>
