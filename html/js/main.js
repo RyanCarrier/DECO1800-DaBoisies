@@ -31,6 +31,7 @@ function next() {
         case 0:
             $('#homeOptions').show();
             $('#home').hide();
+            minLogo();
             //I want the logo to start big and shrink small
             break;
         case 1:
@@ -157,6 +158,7 @@ function home() {
     $("#squadSummary").html("We are sorry but no squad summary is available at this time.");
     $("#game-head").html("Choose your Squad");
     $("#cards").show();
+    maxLogo();
     state = 0;
     round = 1;
     year = 2000;
@@ -180,11 +182,28 @@ function createCards() {
     }
 }
 
+function minLogo() {
+    var img = $("#logoID");
+    img.animate({
+        height: "15%",
+        width: "26%"
+    }, 1000);
+}
+
+function maxLogo() {
+    var img = $("#logoID");
+
+    img.animate({
+        height: "75%",
+        width: "100%"
+    }, 1000);
+}
 $(window).load(function() {
     s = "";
     for (var i = 1; i <= 6; i++) {
         s += "<div id=sq" + i + "></div>";
     }
+    maxLogo();
     $("#datacontainer").html(s);
     $.ajax({
         type: 'GET',
