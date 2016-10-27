@@ -31,7 +31,7 @@ function next() {
         case 0:
             $('#homeOptions').show();
             $('#home').hide();
-            //I want the logo tos tart big and shrink small
+            //I want the logo to start big and shrink small
             break;
         case 1:
             $('#homeOptions').hide();
@@ -173,7 +173,7 @@ function createCards() {
             alert(x);
         } else {
             $("#cards").append("<div " + "id=\"c" + x + "\" class=\"celeb-card col-md-1\" " + " draggable=\"true\" ondragstart=\"drag(event)\">" +
-                "<img src=\"" + people.people[x].image + "\" style=\"max-height:100%;max-width:100%;\"><p>" +
+                "<img src=\"" + people.people[x].image + "\" style=\"max-height:100%;max-width:100%;pointer-events:none;\"><p>" +
                 people.people[x].query + " </p></div>");
         }
         x++;
