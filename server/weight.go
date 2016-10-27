@@ -116,6 +116,7 @@ func getWeightYear(year int, query string, attempt int) (CleanResponse, error) {
 		err = json.Unmarshal(body, &gotr)
 		if err != nil {
 			log.Warn("Error unmarshalling response body", err)
+			log.Warn(string(body))
 			return getWeightYear(year, query, attempt+1)
 		}
 		cr = gotr.Clean()

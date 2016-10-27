@@ -5,7 +5,9 @@ var round = 1;
 var totalScore = 0;
 var squadLoaded = [false, false, false, false, false, false];
 var squadScore = [0, 0, 0, 0, 0, 0];
+var squad = ["", "", "", "", "", ""];
 var roundScore = 0;
+var xx = 0;
 /*STATE SUMMARY;
 
 0 main menu
@@ -37,16 +39,16 @@ function next() {
             $('#nextBtn').html("Submit Squad");
             doGameIndicator();
             $('#gameIndicators').show();
-            createCards();
             break;
         case 2:
             if (!(isSquadFull())) {
                 return;
             }
-            runDamage();
             $("#squadSummary").show();
             $("#cards").hide();
-            $('#nextBtn').html("Next");
+            $("#nextBtn").html(`Mod my squad!`);
+            runDamage();
+            //$('#nextBtn').html("Next");
             break;
         case 3:
             round++;
@@ -68,24 +70,37 @@ function next() {
 function runDamage() {
     $("#theSquad").children("div").each(function(index, element) {
         $(element).each(function(i, e) {
+            console.log(JSON.stringify(squad));
+            //alert(xx);
+            squad[xx] = $(element).text().trim();
             individualRunDamage(i, e);
+            xx++;
         });
+        //xx = 0;
         //individualRunDamage(index, element);
     });
-    for (var i = 0; i <= squadLoaded.length; i++) {
-        if (squadLoaded[i] === false) {
-            // Usage!
-            //alert(JSON.stringify(squadLoaded));
-            //  sleep(500).then(() => {});
-            //      i = -1;
-        }
-    }
-    createModal("Damage report", "You scored " + roundScore + " this round with " + "someone" + " scoring the most points for you!");
+    createModal("Loading...", `<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>`);
+    setTimeout(hasLoaded, 100);
+
+
 
     //get names from thingy
     //loop over them
     //print to modal with spinner while loading
 
+}
+
+function hasLoaded() {
+    for (var i = 0; i <= squadLoaded.length; i++) {
+        if (squadLoaded[i] === false) {
+            setTimeout(hasLoaded, 100);
+            return;
+        }
+    }
+    //hideModal();
+    console.log("loaded...");
+    createModal("Damage report", "You scored " + roundScore + " this round with " + "someone" + " scoring the most points for you!");
+    totalScore += roundScore;
 }
 
 function sleep(time) {
@@ -94,7 +109,8 @@ function sleep(time) {
 
 function individualRunDamage(index, element) {
     name = $(element).text().trim();
-    alert("/api/weight/" + encodeURI(name) + "/year/" + year);
+    name = name.replace("/", "%2F");
+    //alert("/api/weight/" + encodeURI(name) + "/year/" + year);
     $.getJSON("/api/weight/" + encodeURI(name) + "/year/" + year, function(got) {
         total = 0;
         for (var i = 0; i < got.zones.length; i++) {
@@ -102,9 +118,17 @@ function individualRunDamage(index, element) {
         }
         total *= 47;
         total /= 7;
-        alert(index);
-        squadScore[index] = total;
-        squadLoaded[index] = true;
+        total = Math.round(total);
+        roundScore += total;
+        console.log(total);
+        for (i = 0; i < squad.length; i++) {
+            if (squad[i] === got.query) {
+                squadScore[i] = total;
+                squadLoaded[i] = true;
+                console.log("" + i + " done " + got.query);
+                return;
+            }
+        }
     });
 }
 
@@ -141,6 +165,7 @@ function home() {
 
 
 function createCards() {
+    console.log("createcards");
     x = 0;
     while (x < people.people.length) {
         if (people.people[x] === undefined) {
@@ -156,6 +181,11 @@ function createCards() {
 }
 
 $(window).load(function() {
+    s = "";
+    for (var i = 1; i <= 6; i++) {
+        s += "<div id=sq" + i + "></div>";
+    }
+    $("#datacontainer").html(s);
     $.ajax({
         type: 'GET',
         url: "/api/getlist/",
@@ -164,6 +194,7 @@ $(window).load(function() {
         dataType: 'json',
         success: function(json) {
             people = json;
+            createCards();
         },
         error: function(e) {
             alert("error getting data");
