@@ -455,16 +455,12 @@ div.midBoisBtn:hover, .midBoisBtn:hover, .boisBtn:hover {
 	border: 2px solid #B52EFF;
 }
 
-
-
-
-
 .boisBtn {
   background-color: orange;
   text-align: center;
   border-radius: 0px;
   border: 2px solid orange;
-  width: 90%;
+  width: 40%;
   color: #fff;
 }
 
