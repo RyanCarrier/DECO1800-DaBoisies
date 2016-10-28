@@ -316,7 +316,7 @@ div.menubuttons, .menubuttons{
 
 div.sm, .sm {
 	margin: 20px;
-	padding: 5px;
+	width: 110px;
 	color: black;
 }
 /* Influence Indicator
@@ -354,12 +354,12 @@ div.sm, .sm {
 	display: block;
 	background-color: white;
 	height: 100px;
-	width: 6.5%;
+	width: 100px;
 	text-align: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 0px;
-	margin: 9.80px;
-	padding: 5px;
+	margin: 7px;
+	padding: 3px;
 }
 
 
