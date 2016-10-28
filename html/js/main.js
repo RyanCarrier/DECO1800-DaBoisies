@@ -199,7 +199,7 @@ function minLogo() {
     var img = $("#logoID");
     img.animate({
         height: "15%",
-        width: "26%"
+        width: "17%"
     }, 1000);
 }
 
@@ -208,7 +208,7 @@ function maxLogo() {
 
     img.animate({
         height: "75%",
-        width: "100%"
+        width: "78%"
     }, 1000);
 }
 $(window).load(function() {
