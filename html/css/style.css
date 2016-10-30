@@ -9,6 +9,8 @@ body {
     background-color: white;
     height: 100%;
 	width: 100%;*/
+  background: url('../img/pink.jpg');
+  background-repeat: no-repeat;
 	overflow: hidden;
 }
 
