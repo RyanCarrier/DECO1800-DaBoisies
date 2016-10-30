@@ -218,7 +218,7 @@ $(window).load(function() {
     }
     maxLogo();
     $("#datacontainer").html(s);
-    alert("trying to get");
+    //alert("trying to get");
     $.ajax({
         type: 'GET',
         url: "/api/getlist/",
