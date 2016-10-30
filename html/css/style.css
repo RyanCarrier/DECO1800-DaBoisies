@@ -1,7 +1,7 @@
 body {
     font-size: 1.2em;
     color: black;
-    /*background-image: url("../img/pink.jpg");
+    background-image: url("../img/pink.jpg");/*
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -9,7 +9,7 @@ body {
     background-color: white;
     height: 100%;
 	width: 100%;*/
-  background: url('../img/pink.jpg');
+  /*background: url('../img/pink.jpg');*/
   background-repeat: no-repeat;
 	overflow: hidden;
 }
