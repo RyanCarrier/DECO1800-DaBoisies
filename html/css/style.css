@@ -9,7 +9,7 @@ body {
     background-color: white;
     height: 100%;
 	width: 100%;*/
-  background: url('../img/pink.png');
+  background: url('/img/pink.png');
   background-repeat: no-repeat;
 	overflow: hidden;
 }
