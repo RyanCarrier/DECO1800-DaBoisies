@@ -1,14 +1,14 @@
 body {
     font-size: 1.2em;
     color: black;
-    background-image: url("../img/pink.jpg");
+    /*background-image: url("../img/pink.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-color: white;
     height: 100%;
-	width: 100%;
+	width: 100%;*/
 	overflow: hidden;
 }
 
