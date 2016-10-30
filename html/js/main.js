@@ -229,7 +229,9 @@ $(window).load(function() {
             createCards();
         },
         error: function(e) {
-            alert("error getting data");
+            alert("error getting data" + JSON.stringify(e));
+            alert(e);
+
         }
     });
 });
