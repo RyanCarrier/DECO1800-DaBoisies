@@ -12,111 +12,111 @@
 <script src="js/modal.js"></script>
 <script src="js/main.js"></script>
 <style>
+    {
+        margin: 0;
+        padding: 0;
+    }
 
-{ margin: 0; padding: 0; }
-
-body {
-        background: url('../img/pink.jpg') ;
-background-repeat:no-repeat;
-
-}
-
-
+    body {
+        background: url('../img/pink.jpg');
+        background-repeat: no-repeat;
+    }
 </style>
 </head>
 
 <body>
-<span id="helperButton" class="container-fluid btn btn-success center-block" onclick="help()">Help!</span>
-<div class="container-fluid">
-  <!-- modal begin-->
-  <div id="myModal" class="modal fade container-fluid" role="dialog">
+    <span id="helperButton" class="container-fluid btn btn-success center-block" onclick="help()">Help!</span>
+    <div class="container-fluid">
+        <!-- modal begin-->
+        <div id="myModal" class="modal fade container-fluid" role="dialog">
 
-          <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-                  <div id="myModalHead" class="modal-header">
-                  </div>
-                  <div id="myModalBody" class="modal-body">
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-              </div>
-          </div>
-
-  </div>
-
-    <img id="logoID" class="container-fluid center-block logo" src="../img/logo2.png" style="height: 75%; width: 100%;"/>
-
-    <div id="home">
-        <br>
-        <div id="startGameButton" class="boisBtn container-fluid btn center-block" onclick="next()">
-            <p>Start game!</p>
-        </div>
-    </div>
-
-    <div id="homeOptions" class="container-fluid menu" style="display: none">
-        <div class="container">
-            <div id="homeBox" class="container-fluid center-block boisBox row">
-                <h1>Welcome to Ultimate Squad Goals Simulator 2K16</h1>
-                <p>Ultimate Squad Goals Simulator 2K16 is a fantasy party simulator where you must assemble a hypothetical squad of real life celebrities in an attempt to host the best parties ever. If you are ready to start muzzing it out, press the play button below!</p>
-            </div>
-            <div class="container-fluid menubuttons">
-                <div id="playBtn" class="btn container-fluid startBtn col-md-4" onclick="next()">
-                    <h4>Play Game As </br>A Guest</h4>
-                </div>
-                <div id="loginBtn" class="btn container-fluid startBtn disabled col-md-4" onclick="sorry()">
-                    <h4>Sign Up/Login</h4></br>
-                </div>
-                <div id="leaderboardBtn" class="btn container-fluid startBtn col-md-4" onclick="showLeaderboard()">
-                    <h4>Leaderboards</h4></br>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="gameIndicators" class="container-fluid center-block" style="display: none">
-        <div id="roundIndicator" class="topBtnsL">
-        </div>
-        <div id="dmgReport">
-            <button id="dmgBtn" type="button" class="btn-sm container-fluid center-block topBtnsR disabled" onclick="sorry()">Last Damage Report</button>
-        </div>
-    </div>
-
-    <div id="squad" class="squadie" style="display:none">
-        <div id="squad" class="squadie">
-            <div id="game-head" class="game-heading">
-                <h1>Choose your Squad</h1>
-            </div>
-
-        </div>
-
-        <div class="container-fluid squadie">
-            <div id="selection" class="container-fluid center-block">
-                <div class="row" id="squadSummary" style="display:none">We are sorry but no squad summary is available at this time.</div>
-                <div class="row" id="cards" ondrop="drop(event)" ondragover="allowDrop(event)">
-                </div>
-                <div class="row">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div id="myModalHead" class="modal-header">
+                    </div>
+                    <div id="myModalBody" class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
 
-            <div id="theSquad" class="newbox">
-                <div id="sm1" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                <div id="sm2" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                <div id="sm3" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                <div id="sm4" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                <div id="sm5" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                <div id="sm6" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            </div>
-            <div id="homeBtn" class="container-fluid btn center-block midBoisBtn" onclick="home()">
-                <p>Back to Main Menu</p>
-            </div>
-            <div id="nextBtn" class="container-fluid btn center-block nextBtn" onclick="next()"></div>
         </div>
-    </div>
+
+        <img id="logoID" class="container-fluid center-block logo" src="../img/logo2.png" style="height: 75%; width: 100%;" />
+
+        <div id="home">
+            <br>
+            <div id="startGameButton" class="boisBtn container-fluid btn center-block" onclick="next()">
+                <p>Start game!</p>
+            </div>
+        </div>
+
+        <div id="homeOptions" class="container-fluid menu" style="display: none">
+            <div class="container">
+                <div id="homeBox" class="container-fluid center-block boisBox row">
+                    <h1>Welcome to Ultimate Squad Goals Simulator 2K16</h1>
+                    <p>Ultimate Squad Goals Simulator 2K16 is a fantasy party simulator where you must assemble a hypothetical squad of real life celebrities in an attempt to host the best parties ever. If you are ready to start muzzing it out, press the
+                        play button below!</p>
+                </div>
+                <div class="container-fluid menubuttons">
+                    <div id="playBtn" class="btn container-fluid startBtn col-md-4" onclick="next()">
+                        <h4>Play Game As </br>A Guest</h4>
+                    </div>
+                    <div id="loginBtn" class="btn container-fluid startBtn disabled col-md-4" onclick="sorry()">
+                        <h4>Sign Up/Login</h4></br>
+                    </div>
+                    <div id="leaderboardBtn" class="btn container-fluid startBtn col-md-4" onclick="showLeaderboard()">
+                        <h4>Leaderboards</h4></br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameIndicators" class="container-fluid center-block" style="display: none">
+            <div id="roundIndicator" class="topBtnsL">
+            </div>
+            <div id="dmgReport">
+                <button id="dmgBtn" type="button" class="btn-sm container-fluid center-block topBtnsR disabled" onclick="sorry()">Last Damage Report</button>
+            </div>
+        </div>
+
+        <div id="squad" class="squadie" style="display:none">
+            <div id="squad" class="squadie">
+                <div id="game-head" class="game-heading">
+                    <h1>Choose your Squad</h1>
+                </div>
+
+            </div>
+
+            <div class="container-fluid squadie">
+                <div id="selection" class="container-fluid center-block">
+                    <div class="row" id="squadSummary" style="display:none">We are sorry but no squad summary is available at this time.</div>
+                    <div class="row" id="cards" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
+
+                <div id="theSquad" class="newbox">
+                    <div id="sm1" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div id="sm2" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div id="sm3" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div id="sm4" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div id="sm5" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div id="sm6" class="member center-block sm" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                </div>
+                <div id="homeBtn" class="container-fluid btn center-block midBoisBtn" onclick="home()">
+                    <p>Back to Main Menu</p>
+                </div>
+                <div id="nextBtn" class="container-fluid btn center-block nextBtn" onclick="next()"></div>
+            </div>
+        </div>
 
 
-    <div id="datacontainer" class="hidden">
-    </div>
+        <div id="datacontainer" class="hidden">
+        </div>
     </div>
 
 </body>

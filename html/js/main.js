@@ -226,7 +226,7 @@ $(window).load(function() {
         dataType: 'json',
         success: function(json) {
             people = json;
-            //  createCards();
+            createCards();
         },
         error: function(e) {
             alert("error getting data");
